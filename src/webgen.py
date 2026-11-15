@@ -141,6 +141,14 @@ def footer(lang):
 <p class="small">{t['ai']} · © {dt.date.today().year} {c['title_ko']}</p></footer></body></html>'''
 
 
+def aff_url(tpl, ep):
+    """제휴 링크: {place_ko}/{place_en} 자리에 이번 편 지역명을 넣어 지역별 검색 링크로 만든다"""
+    if not tpl:
+        return ''
+    from urllib.parse import quote
+    return tpl.replace('{place_ko}', quote(ep['place_ko'])).replace('{place_en}', quote(ep['place_en']))
+
+
 # ---------- 본문 (사이트·블로거 공용) ----------
 def article_html(ep, lang, img_base, for_blogger=False):
     t, inf, b, af = T[lang], ep['info'], ep.get('blog', {}), CFG['affiliates']
@@ -180,13 +188,15 @@ def article_html(ep, lang, img_base, for_blogger=False):
     out.append(f'<h2>🗺 {t["info"]}</h2><div class="tw"><table class="info">' + ''.join(
         f'<tr><th>{k}</th><td>{e(v)}</td></tr>' for k, v in [(t['addr'], inf[f'address_{lg}']), (t['best'], inf[f'best_{lg}']),
                                                            (t['go'], inf[f'transport_{lg}']), (t['tip'], inf[f'tip_{lg}'])]) + '</table></div>')
-    links = [(t['stay'], af.get('stay')), (t['tour'], af.get('tour')), (t['goods'], af.get('goods'))]
+    links = [(t['stay'], aff_url(af.get('stay'), ep)), (t['tour'], aff_url(af.get('tour'), ep)), (t['goods'], aff_url(af.get('goods'), ep))]
     if any(u for _, u in links) or not for_blogger:
         out.append(f'<h2>✈️ {t["prep"]}</h2><div class="cta">' + ''.join(
             f'<a class="btn" href="{e(u)}" rel="sponsored noopener" target="_blank">{e(x)} →</a>' if u
             else f'<span class="btn off">{e(x)} {t["placeholder"]}</span>' for x, u in links if u or not for_blogger) + '</div>')
         if any(u for _, u in links):
             out.append(f'<p class="small">{e(af["disclosure"])}</p>')
+            if 'coupang' in (af.get('goods') or ''):
+                out.append('<p class="small">이 게시물은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p>')
     out.append(f'<p>{e(L(b, "closing", lang))}</p>')
     if not for_blogger:
         out.append(ad('slot_bottom'))
