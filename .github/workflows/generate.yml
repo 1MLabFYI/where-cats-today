@@ -41,6 +41,9 @@ jobs:
         run: |
           D="${{ steps.gen.outputs.dir }}"; T="ep-${{ steps.gen.outputs.id }}"
           (cd "$D" && zip -qr site_img.zip site_img && zip -q naver_draft.zip naver_draft.html photo_*.jpg)
+          # 같은 편을 다시 만들면 이전 릴리스·이슈를 정리하고 새로 올림
+          gh release delete "$T" -y --cleanup-tag 2>/dev/null || true
+          for N in $(gh issue list --state open --search "$T in:title" --json number --jq '.[].number'); do gh issue close $N -c "다시 생성됨"; done
           gh release create "$T" "$D/reel.mp4" "$D/cover.jpg" "$D/site_img.zip" "$D/naver_draft.zip" "$D/episode.json" \
             --title "${{ steps.gen.outputs.place }} (${{ steps.gen.outputs.id }})" --notes "auto" --latest=false
       - name: Commit history
