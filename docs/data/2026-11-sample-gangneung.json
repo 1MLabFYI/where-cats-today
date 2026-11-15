@@ -11,7 +11,8 @@
    "type": "cover",
    "narration": "오늘 어디냥? 오늘은 겨울바다 보러 강릉 간다냥!",
    "photo_query": "Gangneung beach South Korea",
-   "photo_kind": "place"
+   "photo_kind": "place",
+   "photo_query_ko": "강릉"
   },
   {
    "type": "talk",
@@ -23,7 +24,8 @@
    "narration": "이천이십육 년부터 이 년 동안 강릉 방문의 해래! 반값 투어패스 강릉갈래도 있다냥!",
    "photo_query": "Gangneung city South Korea",
    "photo_kind": "place",
-   "subtitle_en": "2026–2027 are 'Visit Gangneung Years'!\nThere's even a half-price tour pass"
+   "subtitle_en": "2026–2027 are 'Visit Gangneung Years'!\nThere's even a half-price tour pass",
+   "photo_query_ko": "강릉"
   },
   {
    "type": "talk",
@@ -35,7 +37,8 @@
    "narration": "바다 보면서 커피 한 잔! 여기가 바로 강릉 감성이다냥.",
    "photo_query": "Anmok beach coffee street Gangneung South Korea",
    "photo_kind": "place",
-   "subtitle_en": "Coffee with a sea view —\nthat's the Gangneung vibe"
+   "subtitle_en": "Coffee with a sea view —\nthat's the Gangneung vibe",
+   "photo_query_ko": "안목해변"
   },
   {
    "type": "talk",
@@ -47,7 +50,8 @@
    "narration": "경포호 한 바퀴 산책하고, 경포해변까지 걸어가자냥.",
    "photo_query": "Gyeongpo lake Gangneung South Korea",
    "photo_kind": "place",
-   "subtitle_en": "Walk around the lake,\nthen stroll to Gyeongpo Beach"
+   "subtitle_en": "Walk around the lake,\nthen stroll to Gyeongpo Beach",
+   "photo_query_ko": "경포호"
   },
   {
    "type": "talk",
@@ -59,7 +63,8 @@
    "narration": "새해 첫 해돋이 명소, 정동진! 바다랑 제일 가까운 기차역이다냥.",
    "photo_query": "Jeongdongjin sunrise South Korea",
    "photo_kind": "place",
-   "subtitle_en": "The New Year's sunrise spot!\nThe train station closest to the sea"
+   "subtitle_en": "The New Year's sunrise spot!\nThe train station closest to the sea",
+   "photo_query_ko": "정동진"
   },
   {
    "type": "talk",
@@ -95,7 +100,8 @@
    "narration": "중앙시장에서 닭강정 먹고, 오죽헌까지 들러보자냥.",
    "photo_query": "Ojukheon Gangneung South Korea",
    "photo_kind": "place",
-   "subtitle_en": "Grab dakgangjeong at Jungang Market,\nthen visit Ojukheon"
+   "subtitle_en": "Grab dakgangjeong at Jungang Market,\nthen visit Ojukheon",
+   "photo_query_ko": "오죽헌"
   },
   {
    "type": "info",
@@ -103,7 +109,8 @@
    "pose": "hermi_point",
    "narration": "여행 정보는 저장해두고 써먹으라냥!",
    "photo_query": "Gangneung sea",
-   "photo_kind": "place"
+   "photo_kind": "place",
+   "photo_query_ko": "경포해변"
   },
   {
    "type": "summary",
@@ -114,7 +121,8 @@
    ],
    "narration": "정리하면 바다 뷰 커피, 해돋이, 그리고 순두부! 저장하고 같이 가냥!",
    "photo_query": "Gangneung beach",
-   "photo_kind": "place"
+   "photo_kind": "place",
+   "photo_query_ko": "강릉"
   }
  ],
  "info": {
@@ -222,12 +230,16 @@
  },
  "date": "2026-11-15",
  "credits": [
+  "EchoL-777 / CC0 / Wikimedia Commons",
+  "Seoulinspired / Pixabay",
   "fotografierende / Pixabay",
   "manseok_Kim / Pixabay",
   "phamkhanhquynhtrang / Pixabay",
-  "최광모 / CC BY 3.0 / Wikimedia Commons",
+  "viarami / Pixabay",
   "한국관광공사 (공공누리 제1유형)"
  ],
+ "ig_permalink": "https://www.instagram.com/reel/Dfw59hbAoN2/",
+ "published_at": "2026-11-15T13:37:17Z",
  "images": [
   "cover.jpg",
   "p00.webp",
@@ -242,6 +254,7 @@
   "p09.webp",
   "thumb.webp"
  ],
- "published_at": "2026-11-15T13:37:17Z",
- "ig_permalink": "https://www.instagram.com/reel/Dfw59hbAoN2/"
+ "blogger_urls": {
+  "ko": "https://wherecatstoday.blogspot.com/2026/11/blog-post.html"
+ }
 }
