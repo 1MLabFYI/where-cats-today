@@ -88,6 +88,17 @@ def pixabay(query):
     return out
 
 
+# ---------- 중복 사진 거르기 (파일 주소가 달라도 같은/거의 같은 사진) ----------
+def dhash(im, n=8):
+    g = im.convert('L').resize((n + 1, n), Image.LANCZOS)
+    px = list(g.getdata())
+    return sum(1 << i for i in range(n * n) if px[(i // n) * (n + 1) + i % n] > px[(i // n) * (n + 1) + i % n + 1])
+
+
+def is_dup(h, hashes, th=12):
+    return any(bin(h ^ x).count('1') <= th for x in hashes)
+
+
 # ---------- 엉뚱한 사진 거르기 ----------
 KR_WORDS = ('korea', 'korean', 'seoul', 'busan', 'jeju', 'gangwon', 'gyeong', 'jeolla', 'chungcheong', 'incheon', 'daegu', 'gwangju')
 
@@ -123,13 +134,16 @@ def vision_ok(im, ep, sc):
     sm = im.copy(); sm.thumbnail((512, 512))
     buf = io.BytesIO(); sm.save(buf, 'JPEG', quality=80)
     where = '대한민국(한국)' if ep['region'] == 'domestic' else ep.get('country_ko', '') or ep['place_en']
+    best = (ep.get('info') or {}).get('best_ko', '')
+    season = (f" 이 편은 '{best}' 시기 여행을 소개한다. 계절감이 크게 어긋나면(예: 겨울 여행편인데 벚꽃·꽃밭이 주인공인 사진, 여름편인데 눈 풍경) false."
+              if best else '')
     if sc.get('photo_kind') == 'food':
         q = (f"이 사진이 '{sc.get('label_ko') or ''} / {sc.get('photo_query')}' 음식 장면으로 자연스러운가? "
              f"{where} 여행 소개 영상에 쓸 것이다. 다른 나라 음식이 분명하거나, 음식이 아니거나, 사람 얼굴이 크게 나오면 false.")
     else:
         q = (f"이 사진이 {where} {ep['place_ko']}의 '{sc.get('label_ko') or ep['place_ko']}' 소개 장면 배경으로 맞는가? "
              f"누가 봐도 다른 나라 풍경·건축(예: 국내편인데 일본·중국·유럽·동남아 풍경)이거나, 주제와 무관하거나, "
-             f"글자·워터마크가 크거나, 사람 얼굴이 크게 나오면 false.")
+             f"글자·워터마크가 크거나, 사람 얼굴이 크게 나오면 false. 꽃·나무 클로즈업처럼 장소를 알아볼 수 없는 사진도 false." + season)
     body = {'contents': [{'parts': [{'text': q + ' JSON만: {"ok": true/false, "why": "짧게"}'},
                                     {'inline_data': {'mime_type': 'image/jpeg', 'data': base64.b64encode(buf.getvalue()).decode()}}]}],
             'generationConfig': {'temperature': 0, 'response_mime_type': 'application/json'}}
@@ -147,8 +161,22 @@ def vision_ok(im, ep, sc):
         return True
 
 
+GENERIC = ('왜', '꼭', '같이', '메뉴', '요약', '정보', '추천', '가면', '좋은', '①', '②')
+
+
+def tour_keyword(ep, sc):
+    """관광공사 검색어: 장소 고유명사만 사용 (일반 문구로 검색하면 엉뚱한 사진이 나옴)"""
+    k = (sc.get('photo_query_ko') or '').strip()
+    if k:
+        return k
+    lab = sc.get('label_ko') or ''
+    if lab and not any(g in lab for g in GENERIC):
+        return lab.split('·')[0].strip()
+    return ep['place_ko']
+
+
 def fetch_for_episode(ep, work):
-    used, credits = set(), []
+    used, credits, hashes = set(), [], []
     for i, sc in enumerate(ep['scenes']):
         q = sc.get('photo_query') or ep['place_en']
         kr = ep['region'] == 'domestic'
@@ -157,7 +185,7 @@ def fetch_for_episode(ep, work):
             cands += _safe(pixabay, q) + _safe(pexels, q) + _safe(commons, q)
         else:
             if kr:
-                cands += _safe(tourapi, sc.get('label_ko') or ep['place_ko'])
+                cands += _safe(tourapi, tour_keyword(ep, sc))
             cands += _safe(commons, q) + _safe(pixabay, q) + _safe(pexels, q)
         fallback = (ep['place_en'] + (' South Korea' if kr else ''))
         cands += _safe(tourapi, ep['place_ko']) if kr else []
@@ -172,6 +200,10 @@ def fetch_for_episode(ep, work):
                 continue
             if not im:
                 continue
+            h = dhash(im)
+            if is_dup(h, hashes):
+                print(f"  ✗ 중복 사진 제외: {sc.get('label_ko') or sc['type']}")
+                continue
             if checks < 6:
                 checks += 1
                 if not vision_ok(im, ep, sc):
@@ -179,6 +211,6 @@ def fetch_for_episode(ep, work):
             else:
                 continue                  # 6장 연속 탈락 → 이 장면은 사진 없이(대체 배경)
             im.save(os.path.join(work, f'photo_{i:02d}.jpg'), quality=92)
-            used.add(url); credits.append(credit)
+            used.add(url); credits.append(credit); hashes.append(h)
             break
     return sorted(set(credits))

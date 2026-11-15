@@ -67,6 +67,8 @@ PROMPT = """너는 인스타그램 여행 릴스 채널 '오늘 어디냥? (Wher
 - label_ko/label_en: 장면 제목(스팟 이름 등). pose는 다음 중에서만: 허미 {hermi_poses} / 냐미 {nyami_poses}
 - photo_query: 무료 사진 검색용 영어 키워드. 명소는 '명소 영문명 + 도시명 + 국가명'(국내편은 반드시 'South Korea' 포함),
   음식은 '음식 영문명 + korean food'처럼 그 나라 음식임이 드러나게. photo_kind: place|food
+- photo_query_ko: (국내편 명소 장면만) 한국관광공사 검색용 '정확한 장소 한글 고유명사' 하나. 예: '안목해변', '오죽헌'.
+  '같이 가면 좋은 곳'처럼 일반 문구 금지. cover/[1]/info/summary 장면은 대표 명소 이름.
 - info: 주소(국문/영문), 베스트 시기, 가는 법(한국 출발 기준 항공·KTX 등), 꿀팁 — 모두 검색으로 확인된 사실만.
 - restaurants: 실제 영업 중인 식당/시장 2~3곳 (name, menu, address, hours, name_en, menu_en, address_en, hours_en,
   source=확인한 웹페이지 URL). 확인 불가하면 빼라.
