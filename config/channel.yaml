@@ -5,6 +5,7 @@ channel:
   signature_ko: 허미냐미 냥행기
   signature_en: "Hermi & Nyami's Travel Diary"
   ig_handle: "wherecatstoday"
+  contact_email: ""            # 사이트 문의용 이메일 (채널 전용 이메일 권장, 비우면 인스타 DM 안내)
   naver_blog: ""                # (선택) 네이버 블로그 주소 — 수동 운영 시 사이트 하단에 링크
 
 # 요일별 편성 (KST 기준, 0=월 … 6=일). 국내 4 : 해외 3

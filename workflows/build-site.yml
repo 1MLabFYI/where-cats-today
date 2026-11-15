@@ -1,0 +1,22 @@
+# 사이트만 다시 만들기 (페이지 디자인·약관 수정 반영용). 게시물 데이터는 그대로.
+name: build-site
+on:
+  workflow_dispatch:
+  push:
+    paths: ["src/webgen.py", "assets/site/**", "config/channel.yaml"]
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install pyyaml
+      - run: python src/webgen.py
+      - run: |
+          git config user.name "nyang-bot"; git config user.email "actions@users.noreply.github.com"
+          git add docs
+          git commit -m "site: rebuild" || exit 0
+          git pull --rebase -q && git push

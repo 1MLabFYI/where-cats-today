@@ -137,6 +137,7 @@ def footer(lang):
     return f'''<footer><img src="{url('assets/hermi_wave.webp')}" alt="Hermi" width="70"><img src="{url('assets/nyami_icecream.webp')}" alt="Nyami" width="70">
 <p class="sig">{c['signature_ko']} · {c['signature_en']}</p>
 <p>{t['ig']} {f'<a href="https://www.instagram.com/{ig}/">@{ig}</a>' if ig else ''} {f'· <a href="{nb}">Naver Blog</a>' if nb else ''}</p>
+<p class="small"><a href="{url('about/')}">About</a> · <a href="{url('privacy/')}">Privacy</a> · <a href="{url('terms/')}">Terms</a></p>
 <p class="small">{t['ai']} · © {dt.date.today().year} {c['title_ko']}</p></footer></body></html>'''
 
 
@@ -256,6 +257,75 @@ def feed(lang, eps):
             f'<link>{url(lang + "/")}</link><description>{e(T[lang]["desc"])}</description>{items}</channel></rss>')
 
 
+# ---------- 개인정보처리방침 / 이용약관 / 소개 ----------
+EFFECTIVE = '2026-11-15'
+
+
+def contact_line():
+    c = CFG['channel']
+    em = c.get('contact_email')
+    ig = c.get('ig_handle', '').lstrip('@')
+    parts = []
+    if em:
+        parts.append(f'<a href="mailto:{e(em)}">{e(em)}</a>')
+    if ig:
+        parts.append(f'<a href="https://www.instagram.com/{ig}/">Instagram @{ig} (DM)</a>')
+    return ' · '.join(parts) or '-'
+
+
+def legal_page(title, body):
+    return (head(f'{title} | 오늘 어디냥?', title, 'ko', url(title_slug[title] + '/')) + header('ko', url('en/')) +
+            f'<main class="post"><h1>{title}</h1><article>{body}</article></main>' + footer('ko'))
+
+
+title_slug = {'개인정보처리방침 · Privacy Policy': 'privacy', '이용약관 · Terms of Service': 'terms', '소개 · About': 'about'}
+
+
+def privacy_html():
+    return f"""<p class="small">시행일 Effective date: {EFFECTIVE}</p>
+<h2>1. 수집하는 개인정보</h2><p>'오늘 어디냥? (Where to, Meow?)'(이하 '사이트')는 회원가입, 댓글, 문의 양식 등을 운영하지 않으며 방문자의 이름·연락처 등 개인정보를 직접 수집하지 않습니다.</p>
+<h2>2. 쿠키 및 제3자 서비스</h2><p>사이트는 다음 제3자 서비스를 이용할 수 있으며, 이들 서비스가 쿠키 등을 통해 정보를 처리할 수 있습니다.</p>
+<ul><li><b>GitHub Pages</b>(호스팅): 접속 기록(IP 주소 등)이 보안 목적으로 처리될 수 있습니다.</li>
+<li><b>Google AdSense</b>(광고, 적용 시): Google 및 파트너는 쿠키를 사용해 방문 기록에 기반한 광고를 게재할 수 있습니다. 맞춤 광고는 <a href="https://adssettings.google.com">Google 광고 설정</a>에서 해제할 수 있습니다.</li>
+<li><b>Google Fonts, Instagram 임베드</b>: 글꼴·게시물 표시를 위해 해당 서비스에 접속 정보가 전달될 수 있습니다.</li>
+<li><b>제휴 링크</b>(아고다, 마이리얼트립, 클룩, 쿠팡파트너스 등): 링크를 통해 이동하면 해당 업체 정책이 적용됩니다.</li></ul>
+<h2>3. Google API 서비스 이용</h2><p>사이트 운영자는 자신이 소유한 Blogger 블로그에 여행 가이드 글을 게시하기 위해서만 Google API(Blogger API)를 사용합니다. 이 과정에서 제3자 사용자의 Google 계정 정보에 접근하거나 이를 수집·저장·공유하지 않습니다. Google API로부터 받은 정보의 사용은 <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API 서비스 사용자 데이터 정책</a>(제한적 사용 요건 포함)을 준수합니다.</p>
+<h2>4. 문의</h2><p>개인정보 관련 문의: {contact_line()}</p>
+<hr><h2>Privacy Policy (English)</h2>
+<p>'Where to, Meow?' does not operate sign-ups, comments or contact forms and does not directly collect personal information.
+Third-party services may process data via cookies: GitHub Pages (hosting logs), Google AdSense (if enabled; you can opt out of personalized ads at <a href="https://adssettings.google.com">Google Ads Settings</a>), Google Fonts, Instagram embeds, and affiliate partners whose own policies apply once you leave this site.
+The operator uses the Google Blogger API solely to publish posts to the operator's own blog and does not access, collect, store or share any other user's Google data. Use of information received from Google APIs adheres to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use requirements.
+Contact: {contact_line()}</p>"""
+
+
+def terms_html():
+    af = CFG['affiliates']['disclosure']
+    return f"""<p class="small">시행일 Effective date: {EFFECTIVE}</p>
+<h2>1. 콘텐츠 성격</h2><p>사이트의 여행지·맛집·교통·시기 정보는 공개 자료를 바탕으로 작성한 참고용 정보입니다. 영업시간·요금·운행 정보는 변동될 수 있으므로 방문 전 반드시 공식 채널에서 확인하시기 바랍니다. 정보 이용으로 발생한 손해에 대해 운영자는 책임지지 않습니다.</p>
+<h2>2. AI 활용 고지</h2><p>캐릭터 '허미'와 '냐미'는 AI로 제작되었으며, 원고 작성과 장소 선정에 AI가 활용됩니다. 운영자는 정확성을 위해 출처 확인 절차를 두고 있으나 오류가 있을 수 있습니다.</p>
+<h2>3. 저작권</h2><p>캐릭터·디자인·원고의 저작권은 운영자에게 있으며 무단 복제·배포를 금합니다. 사진은 한국관광공사(공공누리 제1유형), Wikimedia Commons(CC0·CC BY), Pixabay·Pexels 등 이용이 허락된 자료를 출처와 함께 사용합니다. 권리 침해가 의심되면 아래로 알려주시면 신속히 조치하겠습니다.</p>
+<h2>4. 제휴 링크</h2><p>{e(af)}</p>
+<h2>5. 문의</h2><p>{contact_line()}</p>
+<hr><h2>Terms of Service (English)</h2>
+<p>Travel information on this site is for reference only; hours, prices and schedules may change, so please verify with official sources before visiting. The operator is not liable for losses arising from use of the information.
+The characters Hermi and Nyami are AI-generated, and AI assists with writing and destination selection.
+Characters, design and text are owned by the operator. Photos are used under their licenses (KTO KOGL Type 1, Wikimedia CC0/CC BY, Pixabay, Pexels) with credits. Some links are affiliate links and the operator may earn a commission.
+Contact: {contact_line()}</p>"""
+
+
+def about_html():
+    return f"""<div class="talk hermi"><img src="{url('assets/hermi_wave.webp')}" alt="허미" width="72"><p><b>허미 (모험냥)</b> 여행지를 계획하고 코스·시기·가는 법을 소개해요.</p></div>
+<div class="talk nyami"><img src="{url('assets/nyami_icecream.webp')}" alt="냐미" width="72"><p><b>냐미 (먹방냥)</b> 꼭 먹어봐야 할 메뉴와 함께 들르면 좋은 곳을 알려줘요.</p></div>
+<p>'오늘 어디냥? (Where to, Meow?)'는 두 고양이 캐릭터가 매일 국내·해외 여행지를 한국어·영어로 소개하는 여행 가이드입니다. 인스타그램 릴스와 함께 운영됩니다.</p>
+<p>Where to, Meow? is a bilingual (Korean/English) travel guide where two cats introduce a new destination in Korea and beyond every day.</p>
+<p>문의 Contact: {contact_line()}</p>"""
+
+
+def build_legal(w):
+    for t, f in (('개인정보처리방침 · Privacy Policy', privacy_html), ('이용약관 · Terms of Service', terms_html), ('소개 · About', about_html)):
+        w(f'{title_slug[t]}/index.html', legal_page(t, f()))
+
+
 def build():
     eps = all_eps()
     w = lambda p, s: (os.makedirs(os.path.dirname(os.path.join(DOCS, p)), exist_ok=True),
@@ -271,7 +341,8 @@ def build():
     w('index.html', f'''<!DOCTYPE html><meta charset="utf-8"><title>오늘 어디냥? Where to, Meow?</title>
 <link rel="canonical" href="{url('ko/')}"><script>location.replace((navigator.language||'ko').startsWith('ko')?'ko/':'en/')</script>
 <a href="ko/">한국어</a> · <a href="en/">English</a>''')
-    urls = [url('ko/'), url('en/')] + [page_url(x, l) for x in eps for l in ('ko', 'en')]
+    build_legal(w)
+    urls = [url('ko/'), url('en/'), url('about/'), url('privacy/'), url('terms/')] + [page_url(x, l) for x in eps for l in ('ko', 'en')]
     w('sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' +
       ''.join(f'<url><loc>{u}</loc></url>' for u in urls) + '</urlset>')
     w('robots.txt', f'User-agent: *\nAllow: /\nSitemap: {url("sitemap.xml")}\n')
