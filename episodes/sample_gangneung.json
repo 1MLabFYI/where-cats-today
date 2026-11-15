@@ -1,0 +1,216 @@
+{
+  "id": "2026-11-sample-gangneung",
+  "region": "domestic",
+  "place_ko": "강릉",
+  "place_en": "Gangneung",
+  "country_ko": "대한민국",
+  "hook_ko": "커피 향 가득한 겨울바다로!",
+  "hook_en": "Winter sea & coffee town",
+  "scenes": [
+    {
+      "type": "cover",
+      "narration": "오늘 어디냥? 오늘은 겨울바다 보러 강릉 간다냥!",
+      "photo_query": "Gangneung beach winter",
+      "photo_kind": "place"
+    },
+    {
+      "type": "talk",
+      "speaker": "hermi",
+      "pose": "hermi_wave",
+      "label_ko": "왜 지금 강릉?",
+      "label_en": "Why Gangneung now?",
+      "subtitle": "2026~2027년은 '강릉 방문의 해'!\n반값 투어패스 '강릉갈래'도 있다냥",
+      "narration": "이천이십육 년부터 이 년 동안 강릉 방문의 해래! 반값 투어패스 강릉갈래도 있다냥!",
+      "photo_query": "Gangneung city",
+      "photo_kind": "place"
+    },
+    {
+      "type": "talk",
+      "speaker": "hermi",
+      "pose": "hermi_camera",
+      "label_ko": "안목해변 커피거리",
+      "label_en": "Anmok Beach Coffee Street",
+      "subtitle": "바다 보면서 커피 한 잔,\n여기가 바로 강릉 감성이다냥",
+      "narration": "바다 보면서 커피 한 잔! 여기가 바로 강릉 감성이다냥.",
+      "photo_query": "Anmok beach coffee street Gangneung",
+      "photo_kind": "place"
+    },
+    {
+      "type": "talk",
+      "speaker": "hermi",
+      "pose": "hermi_point",
+      "label_ko": "경포대 · 경포호",
+      "label_en": "Gyeongpodae & Gyeongpo Lake",
+      "subtitle": "호수 한 바퀴 산책하고\n경포해변까지 걸어가자냥",
+      "narration": "경포호 한 바퀴 산책하고, 경포해변까지 걸어가자냥.",
+      "photo_query": "Gyeongpo lake Gangneung",
+      "photo_kind": "place"
+    },
+    {
+      "type": "talk",
+      "speaker": "hermi",
+      "pose": "hermi_jump",
+      "label_ko": "정동진",
+      "label_en": "Jeongdongjin",
+      "subtitle": "새해 첫 해돋이 명소!\n바다와 가장 가까운 기차역이다냥",
+      "narration": "새해 첫 해돋이 명소, 정동진! 바다랑 제일 가까운 기차역이다냥.",
+      "photo_query": "Jeongdongjin sunrise",
+      "photo_kind": "place"
+    },
+    {
+      "type": "talk",
+      "speaker": "nyami",
+      "pose": "nyami_burger",
+      "label_ko": "꼭 먹어봐야 할 메뉴 ①",
+      "label_en": "Must-eat #1",
+      "subtitle": "초당순두부!\n얼큰한 짬뽕순두부도 강추다냥",
+      "narration": "냐미 차례! 강릉 오면 초당순두부는 꼭! 얼큰한 짬뽕순두부도 강추다냥.",
+      "photo_query": "soft tofu stew sundubu",
+      "photo_kind": "food"
+    },
+    {
+      "type": "talk",
+      "speaker": "nyami",
+      "pose": "nyami_icecream",
+      "label_ko": "꼭 먹어봐야 할 메뉴 ②",
+      "label_en": "Must-eat #2",
+      "subtitle": "후식은 순두부젤라또!\n맛집 정보는 캡션 확인해냥",
+      "narration": "후식은 고소한 순두부 젤라또! 맛집 정보는 캡션에서 확인해냥!",
+      "photo_query": "gelato ice cream cone",
+      "photo_kind": "food"
+    },
+    {
+      "type": "talk",
+      "speaker": "nyami",
+      "pose": "nyami_walk",
+      "label_ko": "같이 가면 좋은 곳",
+      "label_en": "Also nearby",
+      "subtitle": "중앙시장 닭강정 먹고\n오죽헌까지 들러보자냥",
+      "narration": "중앙시장에서 닭강정 먹고, 오죽헌까지 들러보자냥.",
+      "photo_query": "Ojukheon Gangneung",
+      "photo_kind": "place"
+    },
+    {
+      "type": "info",
+      "speaker": "hermi",
+      "pose": "hermi_point",
+      "narration": "여행 정보는 저장해두고 써먹으라냥!",
+      "photo_query": "Gangneung sea",
+      "photo_kind": "place"
+    },
+    {
+      "type": "summary",
+      "summary": [
+        "안목해변에서 바다 뷰 커피",
+        "경포호 산책 & 정동진 해돋이",
+        "초당순두부 + 순두부젤라또"
+      ],
+      "narration": "정리하면 바다 뷰 커피, 해돋이, 그리고 순두부! 저장하고 같이 가냥!",
+      "photo_query": "Gangneung beach",
+      "photo_kind": "place"
+    }
+  ],
+  "info": {
+    "address_ko": "강원특별자치도 강릉시 (안목해변: 견소동 / 경포대: 저동)",
+    "address_en": "Gangneung-si, Gangwon-do, Korea",
+    "best_ko": "12~2월 겨울바다 · 1월 1일 해돋이",
+    "best_en": "Dec–Feb (winter sea), Jan 1 sunrise",
+    "transport_ko": "KTX 서울역·청량리역 → 강릉역 약 2시간",
+    "transport_en": "KTX Seoul/Cheongnyangni → Gangneung, ~2 hrs",
+    "tip_ko": "반값 투어패스 '강릉갈래'(프립에서 검색)",
+    "tip_en": "Half-price tour pass 'Gangneung Gallae' on Frip"
+  },
+  "must_eat": [
+    {
+      "ko": "초당순두부 · 짬뽕순두부",
+      "en": "Chodang soft tofu / spicy jjamppong sundubu"
+    },
+    {
+      "ko": "순두부젤라또",
+      "en": "Soft-tofu gelato"
+    },
+    {
+      "ko": "중앙시장 닭강정",
+      "en": "Sweet crispy chicken at Jungang Market"
+    }
+  ],
+  "restaurants": [
+    {
+      "name": "강릉짬뽕순두부 강릉본점",
+      "menu": "짬뽕순두부",
+      "address": "강원특별자치도 강릉시 초당순두부길 116",
+      "hours": "08:00~18:00 (브레이크 14:30~15:00)",
+      "source": "https://www.ktriptips.com/kor/food/2905170",
+      "name_en": "Gangneung Jjamppong Sundubu (Main)",
+      "menu_en": "Spicy jjamppong sundubu",
+      "address_en": "116 Chodangsundubu-gil, Gangneung-si, Gangwon-do",
+      "hours_en": "08:00–18:00 (break 14:30–15:00)"
+    },
+    {
+      "name": "순두부젤라또 1호점",
+      "menu": "순두부젤라또",
+      "address": "강원특별자치도 강릉시 초당순두부길 95-5",
+      "hours": "09:20~19:30, 연중무휴",
+      "source": "https://www.ktriptips.com/kor/food/2928154",
+      "name_en": "Sundubu Gelato No.1",
+      "menu_en": "Soft-tofu gelato",
+      "address_en": "95-5 Chodangsundubu-gil, Gangneung-si, Gangwon-do",
+      "hours_en": "09:20–19:30, open daily"
+    },
+    {
+      "name": "강릉 중앙시장",
+      "menu": "닭강정 · 어묵 고로케 등",
+      "address": "강원특별자치도 강릉시 금성로 21",
+      "hours": "점포별 상이",
+      "source": "https://www.ktriptips.com/kor/shopping/132771",
+      "name_en": "Gangneung Jungang Market",
+      "menu_en": "Dakgangjeong, fish-cake croquettes",
+      "address_en": "21 Geumseong-ro, Gangneung-si, Gangwon-do",
+      "hours_en": "Varies by shop"
+    }
+  ],
+  "sources": [
+    "https://m.seoul.co.kr/news/2026/02/12/20260212500277",
+    "https://travelmapjourney.com/gangneung-day-trip-course-2026/"
+  ],
+  "blog": {
+    "title_ko": "[오늘 어디냥?] 강릉 겨울여행 코스 | 안목해변 커피거리·경포호·정동진 + 초당순두부 맛집",
+    "title_en": "[Where to, Meow?] Gangneung Winter Trip: Anmok Coffee Street, Gyeongpo Lake, Jeongdongjin & Soft Tofu",
+    "intro_ko": "겨울바다가 보고 싶을 땐 역시 강릉이죠. 2026~2027년은 강릉시가 선포한 '강릉 방문의 해'라서 반값 투어패스 '강릉갈래' 같은 혜택도 있어요. KTX로 서울역·청량리역에서 약 2시간이면 도착하니 당일치기도, 1박 2일도 가능해요. 허미와 냐미가 다녀온 겨울 강릉 코스를 정리해 볼게요.",
+    "intro_en": "When you miss the winter sea, Gangneung is the answer. The city has named 2026–2027 'Visit Gangneung Years', with perks like the half-price tour pass 'Gangneung Gallae'. The KTX from Seoul or Cheongnyangni Station takes about two hours, so a day trip or an overnight stay both work. Here is the winter route Hermi and Nyami took.",
+    "sections": [
+      {
+        "heading_ko": "안목해변 커피거리",
+        "body_ko": "강릉 여행의 시작은 바다 앞 카페 한 잔이에요. 안목해변(강릉시 견소동)을 따라 바다 뷰 카페가 줄지어 있어 창가 자리에서 겨울바다를 오래 바라볼 수 있어요. 주말 오후에는 주차가 매우 혼잡하니 오전 방문이나 택시 이용을 추천해요.",
+        "heading_en": "Anmok Beach Coffee Street",
+        "body_en": "Start your Gangneung trip with a cup of coffee by the sea. Cafés with ocean views line Anmok Beach (Gyeonso-dong), so you can sit by the window and watch the winter waves for as long as you like. Parking gets very crowded on weekend afternoons, so come in the morning or take a taxi."
+      },
+      {
+        "heading_ko": "경포대 · 경포호",
+        "body_ko": "경포호 둘레를 따라 산책로가 이어져 있어 한 바퀴 걷기 좋아요. 경포대는 입장료가 없고, 호수에서 경포해변까지 걸어서 이동할 수 있어 바다와 호수를 한 번에 즐길 수 있어요.",
+        "heading_en": "Gyeongpodae & Gyeongpo Lake",
+        "body_en": "A walking path circles Gyeongpo Lake, perfect for a slow loop. Gyeongpodae pavilion is free to enter, and you can walk from the lake to Gyeongpo Beach to enjoy both the lake and the sea in one go."
+      },
+      {
+        "heading_ko": "정동진",
+        "body_ko": "바다와 가장 가까운 기차역으로 유명한 해돋이 명소예요. 새해 첫 일출을 보려는 사람들로 붐비니 1월 1일 방문이라면 숙소와 교통을 미리 준비하세요.",
+        "heading_en": "Jeongdongjin",
+        "body_en": "Famous as the train station closest to the sea, Jeongdongjin is a classic sunrise spot. It gets packed on New Year's Day, so book transport and stays early if you plan to see the first sunrise of the year."
+      },
+      {
+        "heading_ko": "초당순두부마을",
+        "body_ko": "강릉에 왔다면 초당순두부는 필수! 고소한 순두부 백반도 좋고, 얼큰한 짬뽕순두부도 인기예요. 재료가 떨어지면 일찍 마감하는 곳이 있으니 아침이나 점심에 가는 걸 추천해요. 후식은 순두부젤라또로 마무리하세요.",
+        "heading_en": "Chodang Sundubu Village",
+        "body_en": "Soft tofu (sundubu) is a must in Gangneung. Try the mild, nutty sundubu set meal or the spicy jjamppong sundubu. Some places close early when ingredients run out, so go for breakfast or lunch, and finish with soft-tofu gelato."
+      },
+      {
+        "heading_ko": "강릉 중앙시장 · 오죽헌",
+        "body_ko": "중앙시장에서는 닭강정 같은 먹거리를 즐길 수 있어요. 여유가 있다면 신사임당과 율곡 이이의 이야기가 담긴 오죽헌까지 들러 보세요.",
+        "heading_en": "Jungang Market & Ojukheon",
+        "body_en": "Grab street food like dakgangjeong (sweet crispy chicken) at Jungang Market. If you have time, visit Ojukheon, the historic house tied to Shin Saimdang and Yulgok Yi I."
+      }
+    ],
+    "closing_ko": "바다 뷰 커피, 해돋이, 그리고 순두부까지. 이번 겨울엔 허미·냐미와 함께 강릉으로 떠나 보세요! 영업시간과 요금은 방문 전 꼭 다시 확인하세요.",
+    "closing_en": "Sea-view coffee, a sunrise and soft tofu — head to Gangneung with Hermi and Nyami this winter! Please double-check opening hours and prices before you go."
+  }
+}

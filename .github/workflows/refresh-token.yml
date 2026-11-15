@@ -1,0 +1,22 @@
+# (예비용) Instagram 로그인 방식(graph.instagram.com) 토큰을 쓸 때만 필요. 현재는 만료 없는 시스템 사용자 토큰이라 수동 실행만 남겨 둠.
+# 사용 시: schedule 주석 해제 + Secrets에 GH_PAT (Fine-grained PAT, 이 저장소의 "Secrets: Read and write")
+name: refresh-token
+on:
+  # schedule:
+  #   - cron: "17 18 * * 0"   # 매주 월요일 03:17 KST
+  workflow_dispatch:
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Refresh Instagram token
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+        run: |
+          RES=$(curl -s "https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=$IG_ACCESS_TOKEN")
+          NEW=$(echo "$RES" | python3 -c "import sys,json;print(json.load(sys.stdin).get('access_token',''))")
+          if [ -z "$NEW" ]; then echo "갱신 실패: $(echo "$RES" | head -c 300)"; exit 1; fi
+          echo "::add-mask::$NEW"
+          gh secret set IG_ACCESS_TOKEN --body "$NEW" --repo "${{ github.repository }}"
+          echo "토큰 갱신 완료 (60일 연장)"

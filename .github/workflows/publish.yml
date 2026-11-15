@@ -1,0 +1,74 @@
+# 매일 16:00 KST 게시: 웹사이트(GitHub Pages, docs/) → 구글 블로거 → 인스타그램 릴스
+# GitHub 예약 실행 지연을 감안해 15:35에 시작 → 16:00까지 대기 후 게시
+name: publish
+on:
+  schedule:
+    - cron: "35 6 * * *"       # 06:35 UTC = 15:35 KST
+  workflow_dispatch:
+    inputs:
+      now:
+        description: "대기 없이 즉시 게시 (true/false)"
+        default: "false"
+      site_only:
+        description: "인스타 게시 없이 사이트·블로거만 (테스트용, true/false)"
+        default: "false"
+permissions:
+  contents: write
+  issues: write
+concurrency: { group: daily, cancel-in-progress: false }
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      IG_USER_ID: ${{ secrets.IG_USER_ID }}
+      IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+      IG_GRAPH_HOST: ${{ vars.IG_GRAPH_HOST || 'graph.facebook.com' }}
+      BLOGGER_CLIENT_ID: ${{ secrets.BLOGGER_CLIENT_ID }}
+      BLOGGER_CLIENT_SECRET: ${{ secrets.BLOGGER_CLIENT_SECRET }}
+      BLOGGER_REFRESH_TOKEN: ${{ secrets.BLOGGER_REFRESH_TOKEN }}
+      BLOGGER_BLOG_ID: ${{ secrets.BLOGGER_BLOG_ID }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install requests pyyaml
+      - id: pick
+        name: 오늘 이슈 찾기
+        run: |
+          N=$(gh issue list --label daily --state open --json number,labels \
+              --jq '[.[] | select(([.labels[].name] | index("skip")) | not)] | sort_by(.number) | last | .number')
+          if [ -z "$N" ] || [ "$N" = "null" ]; then echo "게시할 이슈 없음"; echo "skip=1" >> $GITHUB_OUTPUT; exit 0; fi
+          echo "num=$N" >> $GITHUB_OUTPUT
+          echo "tag=$(gh issue view $N --json title --jq .title)" >> $GITHUB_OUTPUT
+      - if: steps.pick.outputs.skip != '1'
+        run: |
+          mkdir -p ep && gh release download "${{ steps.pick.outputs.tag }}" -p episode.json -p site_img.zip -D ep
+          (cd ep && unzip -q site_img.zip)
+      - if: steps.pick.outputs.skip != '1' && inputs.now != 'true'
+        name: 16:00 KST까지 대기
+        run: |
+          TARGET=$(date -u -d "today 07:00" +%s); NOW=$(date -u +%s)
+          [ $NOW -lt $TARGET ] && sleep $((TARGET-NOW)) || true
+      - if: steps.pick.outputs.skip != '1'
+        id: post
+        run: |
+          R="https://github.com/${{ github.repository }}/releases/download/${{ steps.pick.outputs.tag }}"
+          EXTRA=""; [ "${{ inputs.site_only }}" = "true" ] && EXTRA="--site-only"
+          python src/main.py publish --dir ep --video-url "$R/reel.mp4" --cover-url "$R/cover.jpg" $EXTRA
+          echo "permalink=$(python -c "import json;print(json.load(open('result.json')).get('permalink') or '')")" >> $GITHUB_OUTPUT
+          echo "page=$(python -c "import json;print(json.load(open('result.json')).get('page') or '')")" >> $GITHUB_OUTPUT
+      - if: always() && steps.pick.outputs.skip != '1'
+        name: 사이트 반영 (docs/ 커밋 → GitHub Pages 자동 배포)
+        run: |
+          git config user.name "nyang-bot"; git config user.email "actions@users.noreply.github.com"
+          git add docs
+          git commit -m "site: ${{ steps.pick.outputs.tag }}" || exit 0
+          git pull --rebase -q && git push
+      - if: steps.pick.outputs.skip != '1' && steps.post.outputs.permalink != '' && inputs.site_only != 'true'
+        run: |
+          gh issue comment ${{ steps.pick.outputs.num }} --body "✅ 게시 완료
+          - 릴스: ${{ steps.post.outputs.permalink }}
+          - 사이트: ${{ steps.post.outputs.page }}"
+          gh issue close ${{ steps.pick.outputs.num }}

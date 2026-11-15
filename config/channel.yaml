@@ -1,0 +1,58 @@
+# 오늘 어디냥? / Where to, Meow? — 채널 설정
+channel:
+  title_ko: 오늘 어디냥?
+  title_en: Where to, Meow?
+  signature_ko: 허미냐미 냥행기
+  signature_en: "Hermi & Nyami's Travel Diary"
+  ig_handle: "wherecatstoday"
+  naver_blog: ""                # (선택) 네이버 블로그 주소 — 수동 운영 시 사이트 하단에 링크
+
+# 요일별 편성 (KST 기준, 0=월 … 6=일). 국내 4 : 해외 3
+schedule:
+  domestic: [0, 2, 4, 6]
+  overseas: [1, 3, 5]
+  avoid_repeat_days: 120        # 같은 장소 재등장 금지 기간
+  overseas_focus: "일본·대만·베트남·태국·필리핀·싱가포르·홍콩 등 아시아 위주, 월 2~3회는 유럽·미주·오세아니아"
+
+# 게시 시각 (KST)
+publish_time_kst: "16:00"
+
+characters:
+  hermi:
+    name_ko: 허미
+    role: 모험냥 — 여행지를 계획하고 소개 (명소·동선·시기·여행정보)
+    poses: [hermi_wave, hermi_point, hermi_camera, hermi_camera2, hermi_jump, hermi_peek]
+  nyami:
+    name_ko: 냐미
+    role: 먹방냥 — 꼭 먹어봐야 할 메뉴, 디저트, 함께 들르면 좋은 곳
+    poses: [nyami_icecream, nyami_burger, nyami_boba, nyami_walk, nyami_peek, nyami_sit]
+
+hashtags:
+  base: ["#오늘어디냥", "#허미냐미냥행기", "#WhereToMeow", "#여행스타그램", "#여행추천", "#고양이캐릭터", "#AI캐릭터"]
+  domestic: ["#국내여행", "#국내여행지추천", "#KoreaTravel", "#VisitKorea"]
+  overseas: ["#해외여행", "#해외여행지추천", "#TravelAsia", "#여행준비"]
+
+# 블로그 제휴 링크 (가입 후 본인 파트너 ID/링크로 교체). 비워두면 블로그 원고에 자리만 표시
+affiliates:
+  stay: ""          # 예: 아고다 파트너스 / 트립닷컴 어필리에이트 숙소 검색 링크
+  tour: ""          # 예: 마이리얼트립 파트너스 / 클룩 어필리에이트 투어·입장권 링크
+  goods: ""         # 예: 쿠팡파트너스 여행용품 링크
+  disclosure: "이 포스팅은 제휴 마케팅 활동의 일환으로, 링크를 통해 구매·예약 시 일정액의 수수료를 제공받을 수 있습니다."
+
+# 전용 웹사이트 (GitHub Pages, docs/ 폴더에서 서비스)
+site:
+  base_url: "https://1mlabfyi.github.io/where-cats-today"   # 저장소 이름이 다르면 끝부분 수정. 예: https://아이디.github.io/today-where-nyang  또는 https://wheretomeow.com (끝에 / 없이)
+  custom_domain: ""     # 개인 도메인을 쓰면 입력 (예: wheretomeow.com) → CNAME 자동 생성
+  default_lang: ko
+  search_console_verification: ""   # 구글 서치콘솔 HTML 태그 content 값
+  adsense:
+    client: ""          # 예: ca-pub-1234567890123456 (승인 후 입력하면 광고 코드·ads.txt 자동 삽입)
+    slot_top: ""
+    slot_mid: ""
+    slot_bottom: ""
+
+# 구글 블로거 동시 게시 (사이트와 같은 양식)
+blogger:
+  enabled: true
+  languages: [ko]       # [ko, en] 으로 바꾸면 영어 글도 따로 게시
+  link_to_site: true    # 글 하단에 사이트 원문(한·영) 링크

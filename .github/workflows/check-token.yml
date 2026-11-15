@@ -1,0 +1,17 @@
+# 인스타 토큰 점검: 어느 주소(graph.facebook.com / graph.instagram.com)에서 동작하는지 확인
+name: check-token
+on: workflow_dispatch
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    env:
+      IG_USER_ID: ${{ secrets.IG_USER_ID }}
+      T: ${{ secrets.IG_ACCESS_TOKEN }}
+    steps:
+      - run: |
+          for H in graph.facebook.com graph.instagram.com; do
+            R=$(curl -s "https://$H/v27.0/$IG_USER_ID?fields=username,media_count&access_token=$T")
+            echo "[$H] $R"
+            echo "$R" | grep -q '"username"' && echo "✅ IG_GRAPH_HOST = $H 사용" && OK=1
+          done
+          [ -n "$OK" ] || { echo "❌ 두 주소 모두 실패 — 토큰 또는 IG_USER_ID 확인"; exit 1; }

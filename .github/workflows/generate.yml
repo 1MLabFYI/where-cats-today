@@ -1,0 +1,71 @@
+# 매일 09:00 KST: 장소 선정 → 사진·TTS·영상 제작 → 릴리스 업로드 → 검토용 이슈 생성
+name: generate
+on:
+  schedule:
+    - cron: "0 0 * * *"        # 00:00 UTC = 09:00 KST
+  workflow_dispatch:
+    inputs:
+      region:
+        description: "domestic / overseas (비우면 요일 편성)"
+        required: false
+      episode:
+        description: "직접 만든 에피소드 JSON 경로 (예: episodes/sample_gangneung.json)"
+        required: false
+permissions:
+  contents: write
+  issues: write
+concurrency: { group: daily, cancel-in-progress: false }
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      TOUR_API_KEY: ${{ secrets.TOUR_API_KEY }}
+      PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - run: pip install -r requirements.txt
+      - id: gen
+        run: |
+          ARGS=""
+          [ -n "${{ inputs.region }}" ] && ARGS="$ARGS --region ${{ inputs.region }}"
+          [ -n "${{ inputs.episode }}" ] && ARGS="$ARGS --episode ${{ inputs.episode }}"
+          python src/main.py generate $ARGS
+      - name: Upload to release (영상 공개 URL 확보)
+        run: |
+          D="${{ steps.gen.outputs.dir }}"; T="ep-${{ steps.gen.outputs.id }}"
+          (cd "$D" && zip -qr site_img.zip site_img && zip -q naver_draft.zip naver_draft.html photo_*.jpg)
+          gh release create "$T" "$D/reel.mp4" "$D/cover.jpg" "$D/site_img.zip" "$D/naver_draft.zip" "$D/episode.json" \
+            --title "${{ steps.gen.outputs.place }} (${{ steps.gen.outputs.id }})" --notes "auto" --latest=false
+      - name: Commit history
+        run: |
+          git config user.name "nyang-bot"; git config user.email "actions@users.noreply.github.com"
+          git add episodes/history.json || true
+          git commit -m "history: ${{ steps.gen.outputs.id }}" || echo "no change"
+          git pull --rebase -q || true; git push || true
+      - name: Review issue
+        run: |
+          T="ep-${{ steps.gen.outputs.id }}"; R="https://github.com/${{ github.repository }}/releases/download/$T"
+          {
+            echo "## 🐾 오늘 어디냥? — ${{ steps.gen.outputs.place }}"
+            echo "- 🎬 영상: $R/reel.mp4"
+            echo "- (선택) 네이버 블로그용 원고: $R/naver_draft.zip"
+            echo ""
+            echo "**16:00 KST 자동 게시 예정** — 웹사이트(한·영) → 구글 블로거 → 인스타그램 릴스 순서"
+            echo "- 게시를 막으려면 이 이슈에 \`skip\` 라벨을 붙이세요"
+            echo ""
+            echo "<details><summary>캡션 미리보기</summary>"
+            echo ""
+            echo '```'
+            cat "${{ steps.gen.outputs.dir }}/caption.txt"
+            echo '```'
+            echo "</details>"
+          } > body.md
+          gh label create daily --color 1E5BC6 2>/dev/null || true
+          gh label create skip --color E0445A 2>/dev/null || true
+          gh issue create --title "$T" --body-file body.md --label daily

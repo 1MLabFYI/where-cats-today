@@ -1,0 +1,34 @@
+:root{--blue:#1E5BC6;--pink:#E0445A;--ink:#23263c;--cream:#FFF8EE;--line:#f0e3cf}
+*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:'Noto Sans KR',system-ui,sans-serif;line-height:1.75}
+a{color:var(--blue)}img{max-width:100%;height:auto}
+.top{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:10px 18px;background:#fffdf8ee;backdrop-filter:blur(6px);border-bottom:2px solid var(--line)}
+.logo{text-decoration:none;font-family:Jua,sans-serif;color:var(--blue);display:flex;flex-direction:column;line-height:1.1}
+.logo span{font-size:26px}.logo small{font-size:13px;color:var(--pink)}
+nav a{font-family:Jua,sans-serif;margin-left:14px;text-decoration:none;color:var(--ink)}nav .lang{color:#fff;background:var(--blue);padding:3px 12px;border-radius:20px}
+main{max-width:760px;margin:0 auto;padding:18px}
+h1,h2,h3{font-family:Jua,sans-serif;font-weight:400;line-height:1.35}h1{font-size:30px}h2{font-size:24px;color:var(--blue);margin-top:42px}
+h3{font-size:21px;color:var(--pink)}.lead{font-size:17px}
+.hero{display:flex;align-items:center;justify-content:center;gap:12px;text-align:center;padding:20px 0}
+.hero h1{font-size:46px;color:var(--blue);margin:0}.hero h1 small{display:block;font-size:22px;color:var(--pink)}
+.filters{text-align:center;margin:8px 0 18px}.filters button{font-family:Jua,sans-serif;font-size:16px;border:2px solid var(--blue);background:#fff;color:var(--blue);border-radius:20px;padding:4px 16px;margin:3px;cursor:pointer}
+.filters .on{background:var(--blue);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:14px}
+.card{background:#fff;border-radius:16px;overflow:hidden;text-decoration:none;color:var(--ink);box-shadow:0 2px 8px #0001;display:flex;flex-direction:column;position:relative}
+.card img{aspect-ratio:3/4;object-fit:cover}.card b{font-family:Jua,sans-serif;font-size:18px;padding:6px 10px 0}.card small{padding:0 10px 10px;color:#666}
+.card .badge{position:absolute;top:8px;left:8px}
+.badge{font-family:Jua,sans-serif;font-size:13px;color:#fff;border-radius:12px;padding:2px 10px}.badge.domestic{background:var(--pink)}.badge.overseas{background:var(--blue)}
+.crumb,.meta{font-size:14px;color:#888}
+.talk{display:flex;gap:10px;align-items:flex-start;margin:18px 0}.talk p{background:#fff;border-radius:16px;padding:10px 14px;margin:0;box-shadow:0 1px 4px #0001}
+.talk.hermi p{border:2px solid var(--blue)}.talk.nyami p{border:2px solid var(--pink)}
+ul.eat li{font-size:17px;margin:4px 0}
+.tw{overflow-x:auto}table{border-collapse:collapse;width:100%;background:#fff;border-radius:12px;font-size:15px}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}th{background:#fff1dc;white-space:nowrap}
+.cta{display:flex;flex-wrap:wrap;gap:10px}.btn{font-family:Jua,sans-serif;background:var(--pink);color:#fff;text-decoration:none;padding:10px 18px;border-radius:24px}
+.btn.off{background:#ddd;color:#888}
+.small{font-size:13px;color:#888}.ad{margin:24px 0;min-height:90px}
+footer{text-align:center;padding:30px 10px 40px;border-top:2px solid var(--line);margin-top:40px}footer .sig{font-family:Jua,sans-serif;font-size:20px;color:var(--pink)}
+article>p:first-child img{display:block;margin:0 auto;max-height:560px;width:auto}
+.shops{display:grid;gap:10px}.shop{background:#fff;border-left:5px solid var(--pink);border-radius:12px;padding:10px 14px;display:flex;flex-direction:column;font-size:15px}
+.shop b{font-family:Jua,sans-serif;font-size:18px;font-weight:400}
+.hero img{width:84px}.hero h1{font-size:38px;white-space:nowrap}.hero p{font-size:14px}
+@media(min-width:640px){.hero img{width:130px}.hero h1{font-size:50px}}

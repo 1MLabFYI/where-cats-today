@@ -1,0 +1,6 @@
+pillow>=10
+numpy
+requests
+pyyaml
+fonttools
+edge-tts>=7
