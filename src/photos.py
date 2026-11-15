@@ -1,6 +1,7 @@
 """무료 라이선스 실사 사진 수집 (출처 자동 기록).
-순서: 국내 명소 → 한국관광공사 TourAPI(공공누리 1유형만) → Wikimedia Commons(CC0/PD/CC BY) → Pexels
-      음식      → Pexels → Wikimedia Commons
+순서: 국내 명소 → 한국관광공사 TourAPI(공공누리 1유형만) → Wikimedia Commons(CC0/PD/CC BY) → Pixabay → Pexels
+      음식      → Pixabay → Pexels → Wikimedia Commons
+(Pixabay/Pexels 키는 있는 것만 사용. 둘 다 없어도 동작)
 식당 사진은 사용하지 않는다(저작권). 음식은 일반 음식 사진만.
 """
 import io, os, re
@@ -70,18 +71,34 @@ def _safe(fn, *a):
         print(f'{fn.__name__} 실패:', str(e)[:120]); return []
 
 
+def pixabay(query):
+    """Pixabay: 상업적 이용 가능, 출처 표기 의무 없음(표기는 함). 핫링크 금지 → 내려받아 사용"""
+    key = os.environ.get('PIXABAY_API_KEY')
+    if not key:
+        return []
+    out = []
+    for orient in ('vertical', 'all'):
+        r = requests.get('https://pixabay.com/api/', timeout=30, params=dict(
+            key=key, q=query[:100], image_type='photo', orientation=orient, safesearch='true',
+            per_page=20, order='popular', min_width=1000))
+        out += [(h['largeImageURL'], f"{h.get('user', '')} / Pixabay") for h in r.json().get('hits', [])]
+        if len(out) >= 5:
+            break
+    return out
+
+
 def fetch_for_episode(ep, work):
     used, credits = set(), []
     for i, sc in enumerate(ep['scenes']):
         q = sc.get('photo_query') or ep['place_en']
         cands = []
         if sc.get('photo_kind') == 'food':
-            cands += _safe(pexels, q) + _safe(commons, q)
+            cands += _safe(pixabay, q) + _safe(pexels, q) + _safe(commons, q)
         else:
             if ep['region'] == 'domestic':
                 cands += _safe(tourapi, sc.get('label_ko') or ep['place_ko'])
-            cands += _safe(commons, q) + _safe(pexels, q)
-        cands += _safe(commons, ep['place_en']) + _safe(pexels, ep['place_en'] + ' travel')  # 최후 대체
+            cands += _safe(commons, q) + _safe(pixabay, q) + _safe(pexels, q)
+        cands += _safe(commons, ep['place_en']) + _safe(pixabay, ep['place_en']) + _safe(pexels, ep['place_en'] + ' travel')  # 최후 대체
         for url, credit in cands:
             if url in used:
                 continue

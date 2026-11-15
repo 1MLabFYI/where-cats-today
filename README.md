@@ -29,7 +29,8 @@
 | `GEMINI_API_KEY` | ✅ | Google AI Studio 무료 키 (장소 선정·대본, 검색 그라운딩) |
 | `IG_USER_ID` | ✅ | 새 Instagram 비즈니스 계정 ID |
 | `IG_ACCESS_TOKEN` | ✅ | 장기 토큰 (instagram_content_publish, instagram_manage_comments 권한) |
-| `PEXELS_API_KEY` | 권장 | 무료. 음식·해외 사진 |
+| `PIXABAY_API_KEY` | 권장 | 무료. 음식·해외 사진 (pixabay.com/api/docs 에서 로그인 후 키 확인) |
+| `PEXELS_API_KEY` | 선택 | 무료. Pixabay 보조용 |
 | `TOUR_API_KEY` | 권장 | 공공데이터포털 '한국관광공사_국문 관광정보 서비스' 무료 키. 국내 사진(공공누리 1유형만 사용) |
 | `BLOGGER_*` (4개) | 선택 | 구글 블로거 동시 게시 (아래 4번) |
 
@@ -71,7 +72,7 @@ Actions → `generate` → Run workflow → episode 칸에 `episodes/sample_gang
 ## 사진 저작권 원칙
 - 국내: TourAPI 공공누리 **1유형**(출처 표시 시 변경·상업 이용 가능)만 사용
 - Wikimedia: CC0 / Public Domain / CC BY만 사용 (CC BY-SA 제외)
-- Pexels: 무료 라이선스
+- Pixabay / Pexels: 무료 라이선스 (내려받아 사용, 출처 표기)
 - 식당 사진, 블로그·구글 사진은 쓰지 않습니다. 출처는 캡션과 블로그에 자동으로 표기합니다.
 
 ## 수익화
