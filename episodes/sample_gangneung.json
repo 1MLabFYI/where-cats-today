@@ -10,7 +10,7 @@
     {
       "type": "cover",
       "narration": "오늘 어디냥? 오늘은 겨울바다 보러 강릉 간다냥!",
-      "photo_query": "Gangneung beach winter",
+      "photo_query": "Gangneung beach South Korea",
       "photo_kind": "place"
     },
     {
@@ -21,8 +21,9 @@
       "label_en": "Why Gangneung now?",
       "subtitle": "2026~2027년은 '강릉 방문의 해'!\n반값 투어패스 '강릉갈래'도 있다냥",
       "narration": "이천이십육 년부터 이 년 동안 강릉 방문의 해래! 반값 투어패스 강릉갈래도 있다냥!",
-      "photo_query": "Gangneung city",
-      "photo_kind": "place"
+      "photo_query": "Gangneung city South Korea",
+      "photo_kind": "place",
+      "subtitle_en": "2026–2027 are 'Visit Gangneung Years'!\nThere's even a half-price tour pass"
     },
     {
       "type": "talk",
@@ -32,8 +33,9 @@
       "label_en": "Anmok Beach Coffee Street",
       "subtitle": "바다 보면서 커피 한 잔,\n여기가 바로 강릉 감성이다냥",
       "narration": "바다 보면서 커피 한 잔! 여기가 바로 강릉 감성이다냥.",
-      "photo_query": "Anmok beach coffee street Gangneung",
-      "photo_kind": "place"
+      "photo_query": "Anmok beach coffee street Gangneung South Korea",
+      "photo_kind": "place",
+      "subtitle_en": "Coffee with a sea view —\nthat's the Gangneung vibe"
     },
     {
       "type": "talk",
@@ -43,8 +45,9 @@
       "label_en": "Gyeongpodae & Gyeongpo Lake",
       "subtitle": "호수 한 바퀴 산책하고\n경포해변까지 걸어가자냥",
       "narration": "경포호 한 바퀴 산책하고, 경포해변까지 걸어가자냥.",
-      "photo_query": "Gyeongpo lake Gangneung",
-      "photo_kind": "place"
+      "photo_query": "Gyeongpo lake Gangneung South Korea",
+      "photo_kind": "place",
+      "subtitle_en": "Walk around the lake,\nthen stroll to Gyeongpo Beach"
     },
     {
       "type": "talk",
@@ -54,8 +57,9 @@
       "label_en": "Jeongdongjin",
       "subtitle": "새해 첫 해돋이 명소!\n바다와 가장 가까운 기차역이다냥",
       "narration": "새해 첫 해돋이 명소, 정동진! 바다랑 제일 가까운 기차역이다냥.",
-      "photo_query": "Jeongdongjin sunrise",
-      "photo_kind": "place"
+      "photo_query": "Jeongdongjin sunrise South Korea",
+      "photo_kind": "place",
+      "subtitle_en": "The New Year's sunrise spot!\nThe train station closest to the sea"
     },
     {
       "type": "talk",
@@ -66,7 +70,8 @@
       "subtitle": "초당순두부!\n얼큰한 짬뽕순두부도 강추다냥",
       "narration": "냐미 차례! 강릉 오면 초당순두부는 꼭! 얼큰한 짬뽕순두부도 강추다냥.",
       "photo_query": "soft tofu stew sundubu",
-      "photo_kind": "food"
+      "photo_kind": "food",
+      "subtitle_en": "Chodang soft tofu!\nTry the spicy jjamppong sundubu too"
     },
     {
       "type": "talk",
@@ -77,7 +82,8 @@
       "subtitle": "후식은 순두부젤라또!\n맛집 정보는 캡션 확인해냥",
       "narration": "후식은 고소한 순두부 젤라또! 맛집 정보는 캡션에서 확인해냥!",
       "photo_query": "gelato ice cream cone",
-      "photo_kind": "food"
+      "photo_kind": "food",
+      "subtitle_en": "Soft-tofu gelato for dessert!\nRestaurant info in the caption"
     },
     {
       "type": "talk",
@@ -87,8 +93,9 @@
       "label_en": "Also nearby",
       "subtitle": "중앙시장 닭강정 먹고\n오죽헌까지 들러보자냥",
       "narration": "중앙시장에서 닭강정 먹고, 오죽헌까지 들러보자냥.",
-      "photo_query": "Ojukheon Gangneung",
-      "photo_kind": "place"
+      "photo_query": "Ojukheon Gangneung South Korea",
+      "photo_kind": "place",
+      "subtitle_en": "Grab dakgangjeong at Jungang Market,\nthen visit Ojukheon"
     },
     {
       "type": "info",

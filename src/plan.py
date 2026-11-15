@@ -62,9 +62,11 @@ PROMPT = """너는 인스타그램 여행 릴스 채널 '오늘 어디냥? (Wher
 - scenes는 정확히 10개: [0]=cover, [1..4]=허미 talk(왜 지금? + 핵심 스팟 2~3곳), [5..6]=냐미 talk(꼭 먹어봐야 할 메뉴 — 식당 이름은 절대 넣지 말 것, [6]의 subtitle에는 '맛집 정보는 캡션 확인'을 포함),
   [7]=냐미 talk(함께 가면 좋은 곳), [8]=info, [9]=summary(summary 3줄).
 - subtitle: 한국어, 최대 2줄(줄바꿈 \\n), 한 줄 18자 이내. 이모지 금지.
+- subtitle_en: subtitle의 자연스러운 영어 버전, 최대 2줄(\n), 한 줄 34자 이내.
 - narration: subtitle과 같은 뜻의 자연스러운 구어체 1~2문장(40자 이내). 숫자·연도·기호는 한글로 풀어 쓴다(예: 2026년→이천이십육 년, KTX→케이티엑스).
 - label_ko/label_en: 장면 제목(스팟 이름 등). pose는 다음 중에서만: 허미 {hermi_poses} / 냐미 {nyami_poses}
-- photo_query: 무료 사진 검색용 영어 키워드(명소명 + 도시명, 음식은 일반 음식명). photo_kind: place|food
+- photo_query: 무료 사진 검색용 영어 키워드. 명소는 '명소 영문명 + 도시명 + 국가명'(국내편은 반드시 'South Korea' 포함),
+  음식은 '음식 영문명 + korean food'처럼 그 나라 음식임이 드러나게. photo_kind: place|food
 - info: 주소(국문/영문), 베스트 시기, 가는 법(한국 출발 기준 항공·KTX 등), 꿀팁 — 모두 검색으로 확인된 사실만.
 - restaurants: 실제 영업 중인 식당/시장 2~3곳 (name, menu, address, hours, name_en, menu_en, address_en, hours_en,
   source=확인한 웹페이지 URL). 확인 불가하면 빼라.
@@ -127,6 +129,7 @@ def validate(ep):
         if s.get('pose') not in poses:
             s['pose'] = CFG['characters'][s['speaker']]['poses'][0]
         s['subtitle'] = s['subtitle'][:44]
+        s['subtitle_en'] = (s.get('subtitle_en') or '')[:80]
         for name in [r.get('name', '') for r in ep.get('restaurants', [])]:
             if name and name in s['subtitle']:
                 raise ValueError('릴스 자막에 식당명이 들어감')

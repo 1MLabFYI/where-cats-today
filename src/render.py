@@ -153,22 +153,45 @@ def overlay_common(ep, sc, d):
     dtext(d, (48, 70), '오늘 어디냥?', font=font(40), fill=(255, 255, 255), stroke_width=4, stroke_fill=BLUE)
     dtext(d, (52, 120), 'Where to, Meow?', font=font(26), fill=(255, 255, 255), stroke_width=3, stroke_fill=BLUE)
     if sc.get('label_ko'):
-        f1, f2 = font(60), font(34)
+        f1, f2 = font(60), font(42)
         draw_text_c(d, 250, sc['label_ko'], f1, (255, 255, 255), 6, INK)
-        draw_text_c(d, 330, sc.get('label_en', ''), f2, (255, 244, 200), 4, INK)
+        draw_text_c(d, 328, sc.get('label_en', ''), f2, (255, 244, 200), 5, INK)
 
 
 def overlay_subtitle(sc, d):
+    """한글 자막 + 그 아래 영어 자막 (배경 박스 없이 외곽선만). 이름표는 표지에서만."""
     if not sc.get('subtitle'):
         return
-    name, col = SPEAKER[sc['speaker']]
-    f = font(54)
-    lines = wrap(d, sc['subtitle'], f, 940)
-    y0 = 975 - (len(lines) - 1) * 70
-    dtext(d, ((W - text_w(d, name, font(38), 4)) // 2, y0 - 62), name, font=font(38), fill=col,
-           stroke_width=4, stroke_fill=(255, 255, 255))
-    for i, ln in enumerate(lines):
-        draw_text_c(d, y0 + i * 70, ln, f, (255, 255, 255), 5, col)
+    col = SPEAKER[sc['speaker']][1]
+    fk, fe = font(54), font(40)
+    ko = wrap(d, sc['subtitle'], fk, 940)
+    en = wrap(d, sc.get('subtitle_en', ''), fe, 960) if sc.get('subtitle_en') else []
+    h = len(ko) * 70 + (14 + len(en) * 52 if en else 0)
+    y = SUB_BOTTOM - h
+    for ln in ko:
+        draw_text_c(d, y, ln, fk, (255, 255, 255), 5, col); y += 70
+    y += 14
+    for ln in en:
+        draw_text_c(d, y, ln, fe, (255, 244, 200), 4, INK); y += 52
+
+
+SUB_BOTTOM = 1215   # 자막 블록 아래 끝 (그 아래는 고양이 + 인스타 UI 영역)
+TALK_CHAR_H = 430   # 본문 장면 고양이 크기 (기존 600)
+
+
+def name_tag(d, text_ko, text_en, col, x, y, tip):
+    """표지 이름표 + 화살표 (tip: 화살표 끝 좌표)"""
+    fk, fe = font(56), font(36)
+    dtext(d, (x, y), text_ko, font=fk, fill=(255, 255, 255), stroke_width=6, stroke_fill=col)
+    dtext(d, (x + text_w(d, text_ko, fk) + 12, y + 16), text_en, font=fe, fill=(255, 255, 255), stroke_width=4, stroke_fill=col)
+    sx, sy = x + 50, y + 70
+    for wdt, c in ((14, (255, 255, 255)), (7, col)):
+        d.line((sx, sy, (sx + tip[0]) // 2 + 20, (sy + tip[1]) // 2, tip[0], tip[1]), fill=c, width=wdt, joint='curve')
+    import math as _m
+    ang = _m.atan2(tip[1] - (sy + tip[1]) / 2, tip[0] - ((sx + tip[0]) / 2 + 20))
+    pts = [tip, (tip[0] - 30 * _m.cos(ang - 0.5), tip[1] - 30 * _m.sin(ang - 0.5)),
+           (tip[0] - 30 * _m.cos(ang + 0.5), tip[1] - 30 * _m.sin(ang + 0.5))]
+    d.polygon(pts, fill=col, outline=(255, 255, 255), width=3)
 
 
 def overlay_cover(ep, d):
@@ -182,7 +205,9 @@ def overlay_cover(ep, d):
     draw_text_c(d, 603, badge, bf, (255, 255, 255), 0, None)
     draw_text_c(d, 700, f"{ep['place_ko']} · {ep['place_en']}", font(96), (255, 255, 255), 8, INK)
     draw_text_c(d, 830, ep['hook_ko'], font(56), (255, 255, 255), 5, PINK)
-    draw_text_c(d, 905, ep.get('hook_en', ''), font(36), (255, 255, 255), 4, INK)
+    draw_text_c(d, 905, ep.get('hook_en', ''), font(44), (255, 255, 255), 5, INK)
+    name_tag(d, '허미', 'Hermi', BLUE, 60, 990, (230, 1150))
+    name_tag(d, '냐미', 'Nyami', PINK, 640, 990, (800, 1150))
 
 
 def overlay_info(ep, d, base):
@@ -199,12 +224,12 @@ def overlay_info(ep, d, base):
     y = 380
     for ko, en, vk, ve in rows:
         dtext(d, (110, y), f'{ko}', font=font(36), fill=PINK)
-        dtext(d, (110 + text_w(d, ko, font(36)) + 14, y + 8), en, font=font(26), fill=(150, 150, 165))
+        dtext(d, (110 + text_w(d, ko, font(36)) + 14, y + 6), en, font=font(30), fill=(150, 150, 165))
         y += 50
         for ln in wrap(d, vk, font(40), 850):
             dtext(d, (110, y), ln, font=font(40), fill=INK); y += 50
-        for ln in wrap(d, ve, font(28), 850):
-            dtext(d, (110, y), ln, font=font(28), fill=(110, 115, 135)); y += 36
+        for ln in wrap(d, ve, font(32), 850):
+            dtext(d, (110, y), ln, font=font(32), fill=(110, 115, 135)); y += 40
         y += 26
 
 
@@ -233,11 +258,11 @@ def scene_frames(ep, sc, idx, bg, dur):
     d = ImageDraw.Draw(static)
     if sc['type'] == 'cover':
         overlay_cover(ep, d)
-        chars = [('hermi_wave', 'left', 620), ('nyami_walk', 'right', 600)]
+        chars = [('hermi_wave', 'left', 540), ('nyami_walk', 'right', 530)]
     elif sc['type'] == 'info':
         overlay_common(ep, {}, d)
         overlay_info(ep, d, static)
-        chars = [(sc.get('pose', 'hermi_point'), 'right', 520)]
+        chars = [(sc.get('pose', 'hermi_point'), 'right', 440)]
     elif sc['type'] == 'summary':
         overlay_common(ep, {}, d)
         overlay_summary(ep, sc, d)
@@ -245,7 +270,7 @@ def scene_frames(ep, sc, idx, bg, dur):
     else:
         overlay_common(ep, sc, d)
         overlay_subtitle(sc, d)
-        chars = [(sc['pose'], CHAR_SIDE[sc['speaker']], 600)]
+        chars = [(sc['pose'], CHAR_SIDE[sc['speaker']], TALK_CHAR_H)]
     n = int(round(dur * FPS))
     for i in range(n):
         t = i / FPS
@@ -282,8 +307,13 @@ def render(ep_path, work, out_mp4, bgm=None):
     p = subprocess.Popen(['ffmpeg', '-y', '-loglevel', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgb24',
                           '-s', f'{W}x{H}', '-r', str(FPS), '-i', '-', '-c:v', 'libx264', '-preset', 'medium',
                           '-crf', '20', '-pix_fmt', 'yuv420p', silent], stdin=subprocess.PIPE)
+    photos = [os.path.join(work, f'photo_{i:02d}.jpg') for i in range(len(ep['scenes']))]
+    have = [p for p in photos if os.path.exists(p)]
     for i, sc in enumerate(ep['scenes']):
-        bg = load_bg(os.path.join(work, f'photo_{i:02d}.jpg'), sc.get('photo_query', ''))
+        ph = photos[i]
+        if not os.path.exists(ph) and have:   # 맞는 사진을 못 찾은 장면은 같은 편의 다른 사진 재사용
+            ph = have[i % len(have)]
+        bg = load_bg(ph, sc.get('photo_query', ''))
         for fr in scene_frames(ep, sc, i, bg, durs[i]):
             p.stdin.write(fr.tobytes())
     p.stdin.close(); p.wait()
