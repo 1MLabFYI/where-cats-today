@@ -7,23 +7,62 @@ import requests, yaml
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CFG = yaml.safe_load(open(os.path.join(ROOT, 'config', 'channel.yaml'), encoding='utf8'))
 HIST = os.path.join(ROOT, 'episodes', 'history.json')
-MODEL = os.environ.get('GEMINI_MODEL', 'gemini-2.5-flash')
+MODEL = os.environ.get('GEMINI_MODEL', '')          # 비우면 사용 가능한 최신 flash 모델 자동 선택
+API = 'https://generativelanguage.googleapis.com/v1beta'
+_models = {}
+
+
+def pick_model(kind='flash'):
+    """구글이 구형 모델을 막아도 멈추지 않도록, 키로 쓸 수 있는 모델 목록에서 최신 버전을 고른다.
+    kind='flash'(대본) / 'lite'(사진 판별)"""
+    if kind == 'flash' and MODEL:
+        return MODEL
+    if kind == 'lite' and os.environ.get('GEMINI_VISION_MODEL'):
+        return os.environ['GEMINI_VISION_MODEL']
+    if kind in _models:
+        return _models[kind]
+    r = requests.get(f'{API}/models', params={'key': os.environ['GEMINI_API_KEY'], 'pageSize': 1000}, timeout=60)
+    names = [m['name'].split('/')[-1] for m in r.json().get('models', [])
+             if 'generateContent' in m.get('supportedGenerationMethods', [])]
+
+    def ver(n):
+        m = re.match(r'gemini-(\d+(?:\.\d+)?)-', n)
+        return float(m.group(1)) if m else 0
+
+    ok = [n for n in names if re.fullmatch(r'gemini-\d+(\.\d+)?-flash' + ('-lite' if kind == 'lite' else ''), n)]
+    if not ok and kind == 'lite':
+        return pick_model('flash')
+    if not ok:  # 정식 이름이 없으면 preview/latest 포함 flash 중 최신
+        ok = [n for n in names if 'flash' in n and 'lite' not in n and 'image' not in n and 'tts' not in n and 'live' not in n]
+    best = sorted(ok, key=lambda n: (ver(n), n))[-1]
+    print(f'Gemini 모델 자동 선택({kind}): {best}')
+    _models[kind] = best
+    return best
 
 
 def gemini(prompt, search=True, temperature=0.8):
-    url = f'https://generativelanguage.googleapis.com/v1beta/models/{MODEL}:generateContent'
     body = {'contents': [{'role': 'user', 'parts': [{'text': prompt}]}],
             'generationConfig': {'temperature': temperature}}
     if search:
         body['tools'] = [{'google_search': {}}]
     for a in range(4):
-        r = requests.post(url, params={'key': os.environ['GEMINI_API_KEY']}, json=body, timeout=180)
+        model = pick_model('flash')
+        r = requests.post(f'{API}/models/{model}:generateContent', params={'key': os.environ['GEMINI_API_KEY']},
+                          json=body, timeout=180)
         if r.status_code == 200:
             c = r.json()['candidates'][0]
             txt = ''.join(p.get('text', '') for p in c['content']['parts'])
             srcs = [g['web']['uri'] for g in c.get('groundingMetadata', {}).get('groundingChunks', []) if 'web' in g]
             return txt, srcs
-        print('gemini', r.status_code, r.text[:300]); time.sleep(20 * (a + 1))
+        print('gemini', model, r.status_code, r.text[:300])
+        if r.status_code == 404:          # 모델 단종 → 목록 다시 받아 즉시 재시도
+            _models.pop('flash', None)
+            if MODEL:
+                raise RuntimeError(f'GEMINI_MODEL={MODEL} 사용 불가. Variables에서 지우거나 바꾸세요.')
+            continue
+        if r.status_code in (400, 401, 403):
+            raise RuntimeError(f'Gemini 키/요청 오류 {r.status_code}')
+        time.sleep(20 * (a + 1))
     raise RuntimeError('Gemini 호출 실패')
 
 

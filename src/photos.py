@@ -147,8 +147,9 @@ def vision_ok(im, ep, sc):
     body = {'contents': [{'parts': [{'text': q + ' JSON만: {"ok": true/false, "why": "짧게"}'},
                                     {'inline_data': {'mime_type': 'image/jpeg', 'data': base64.b64encode(buf.getvalue()).decode()}}]}],
             'generationConfig': {'temperature': 0, 'response_mime_type': 'application/json'}}
-    model = os.environ.get('GEMINI_VISION_MODEL', 'gemini-2.5-flash-lite')
     try:
+        from plan import pick_model
+        model = pick_model('lite')
         r = requests.post(f'https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent',
                           params={'key': key}, json=body, timeout=60)
         txt = r.json()['candidates'][0]['content']['parts'][0]['text']
