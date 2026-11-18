@@ -27,9 +27,7 @@ def caption(ep, credits, blog_url=None):
 🍦 냐미의 꼭 먹어봐야 할 메뉴 / Nyami's must-eats
 {eat}
 
-🍽 냐미가 찜한 맛집 / Where to eat
-{rest}
-
+{('🍽 냐미가 찜한 맛집 / Where to eat' + chr(10) + rest + chr(10)) if rest else ''}
 🗺 여행 정보 / Travel info
 · 위치 Where: {inf['address_ko']} / {inf['address_en']}
 · 베스트 시기 Best time: {inf['best_ko']} / {inf['best_en']}

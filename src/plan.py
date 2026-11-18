@@ -13,57 +13,66 @@ _models = {}
 
 
 def pick_model(kind='flash'):
-    """구글이 구형 모델을 막아도 멈추지 않도록, 키로 쓸 수 있는 모델 목록에서 최신 버전을 고른다.
-    kind='flash'(대본) / 'lite'(사진 판별)"""
-    if kind == 'flash' and MODEL:
-        return MODEL
+    """사진 판별용 모델 (가볍고 한도가 넉넉한 lite 우선)"""
     if kind == 'lite' and os.environ.get('GEMINI_VISION_MODEL'):
         return os.environ['GEMINI_VISION_MODEL']
-    if kind in _models:
-        return _models[kind]
-    r = requests.get(f'{API}/models', params={'key': os.environ['GEMINI_API_KEY'], 'pageSize': 1000}, timeout=60)
-    names = [m['name'].split('/')[-1] for m in r.json().get('models', [])
-             if 'generateContent' in m.get('supportedGenerationMethods', [])]
+    c = model_candidates()
+    lite = [n for n in c if n.endswith('-lite')]
+    return (lite or c)[0] if kind == 'lite' else c[0]
 
-    def ver(n):
-        m = re.match(r'gemini-(\d+(?:\.\d+)?)-', n)
-        return float(m.group(1)) if m else 0
 
-    ok = [n for n in names if re.fullmatch(r'gemini-\d+(\.\d+)?-flash' + ('-lite' if kind == 'lite' else ''), n)]
-    if not ok and kind == 'lite':
-        return pick_model('flash')
-    if not ok:  # 정식 이름이 없으면 preview/latest 포함 flash 중 최신
-        ok = [n for n in names if 'flash' in n and 'lite' not in n and 'image' not in n and 'tts' not in n and 'live' not in n]
-    best = sorted(ok, key=lambda n: (ver(n), n))[-1]
-    print(f'Gemini 모델 자동 선택({kind}): {best}')
-    _models[kind] = best
-    return best
+def model_candidates():
+    """시도할 모델 순서: 최신 flash → 최신 flash-lite → 그 밖의 flash 계열(버전 내림차순)"""
+    names = _models.get('_all')
+    if names is None:
+        r = requests.get(f'{API}/models', params={'key': os.environ['GEMINI_API_KEY'], 'pageSize': 1000}, timeout=60)
+        names = [m['name'].split('/')[-1] for m in r.json().get('models', [])
+                 if 'generateContent' in m.get('supportedGenerationMethods', [])]
+        _models['_all'] = names
+    ver = lambda n: float((re.match(r'gemini-(\d+(?:\.\d+)?)-', n) or [0, 0])[1])
+    flash = [n for n in names if re.fullmatch(r'gemini-\d+(\.\d+)?-flash(-lite)?', n)]
+    flash.sort(key=lambda n: (ver(n), 'lite' not in n), reverse=True)
+    first = [MODEL] if MODEL else []
+    return list(dict.fromkeys(first + flash))[:6]
+
+
+LAST_GROUNDED = [True]
 
 
 def gemini(prompt, search=True, temperature=0.8):
-    body = {'contents': [{'role': 'user', 'parts': [{'text': prompt}]}],
-            'generationConfig': {'temperature': temperature}}
-    if search:
-        body['tools'] = [{'google_search': {}}]
-    for a in range(4):
-        model = pick_model('flash')
-        r = requests.post(f'{API}/models/{model}:generateContent', params={'key': os.environ['GEMINI_API_KEY']},
-                          json=body, timeout=180)
-        if r.status_code == 200:
-            c = r.json()['candidates'][0]
-            txt = ''.join(p.get('text', '') for p in c['content']['parts'])
-            srcs = [g['web']['uri'] for g in c.get('groundingMetadata', {}).get('groundingChunks', []) if 'web' in g]
-            return txt, srcs
-        print('gemini', model, r.status_code, r.text[:300])
-        if r.status_code == 404:          # 모델 단종 → 목록 다시 받아 즉시 재시도
-            _models.pop('flash', None)
-            if MODEL:
-                raise RuntimeError(f'GEMINI_MODEL={MODEL} 사용 불가. Variables에서 지우거나 바꾸세요.')
-            continue
-        if r.status_code in (400, 401, 403):
-            raise RuntimeError(f'Gemini 키/요청 오류 {r.status_code}')
-        time.sleep(20 * (a + 1))
-    raise RuntimeError('Gemini 호출 실패')
+    """호출 순서: (모델, 검색사용) 조합을 차례로 시도.
+    429(한도 초과)·404(단종)가 나면 기다리지 않고 다음 조합으로 → 검색 없이도 시도.
+    반환: (텍스트, 출처URL목록). LAST_GROUNDED[0]에 웹검색 사용 여부 기록."""
+    combos = []
+    for m in model_candidates():
+        if search:
+            combos.append((m, True))
+    for m in model_candidates():
+        combos.append((m, False))
+    errs = []
+    for model, use_search in combos:
+        body = {'contents': [{'role': 'user', 'parts': [{'text': prompt}]}],
+                'generationConfig': {'temperature': temperature}}
+        if use_search:
+            body['tools'] = [{'google_search': {}}]
+        for attempt in range(2):
+            r = requests.post(f'{API}/models/{model}:generateContent', params={'key': os.environ['GEMINI_API_KEY']},
+                              json=body, timeout=180)
+            if r.status_code == 200:
+                c = r.json()['candidates'][0]
+                txt = ''.join(p.get('text', '') for p in c['content']['parts'])
+                srcs = [g['web']['uri'] for g in c.get('groundingMetadata', {}).get('groundingChunks', []) if 'web' in g]
+                LAST_GROUNDED[0] = use_search
+                print(f'Gemini 사용: {model} (웹검색 {"O" if use_search else "X"})')
+                return txt, srcs
+            msg = r.text[:200].replace('\n', ' ')
+            errs.append(f'{model}/{"검색" if use_search else "무검색"}: {r.status_code}')
+            if r.status_code in (429, 404):
+                break                       # 한도 초과·단종 → 다음 조합
+            if r.status_code in (401, 403):
+                raise RuntimeError(f'Gemini 키 오류 {r.status_code}: {msg}')
+            time.sleep(15)                  # 500 등 일시 오류만 한 번 더
+    raise RuntimeError('Gemini 호출 실패 — ' + ', '.join(errs))
 
 
 def parse_json(txt):
@@ -154,6 +163,7 @@ def make_episode(date=None, region=None):
             ep['id'] = f'{date.isoformat()}-{re.sub(r"[^a-z0-9]+", "-", ep["place_en"].lower()).strip("-")}'
             ep['date'] = date.isoformat()
             ep['sources'] = list(dict.fromkeys(ep.get('sources', []) + srcs))
+            ep['grounded'] = LAST_GROUNDED[0]
             return verify_restaurants(ep)
         except Exception as e:
             last = e; print('재시도:', e)
@@ -191,6 +201,10 @@ def verify_restaurants(ep):
          + json.dumps(ep['restaurants'], ensure_ascii=False))
     try:
         txt, _ = gemini(q, temperature=0.1)
+        if not LAST_GROUNDED[0]:
+            print('웹검색 없이 생성됨 → 맛집 정보는 확인 불가라 제외 (메뉴 소개는 유지)')
+            ep['restaurants'] = []
+            return ep
         arr = json.loads(re.search(r'\[.*\]', txt, re.S).group(0))
         ok = {a['name']: a for a in arr if a.get('ok')}
         kept = []
