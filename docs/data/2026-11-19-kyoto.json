@@ -1,0 +1,224 @@
+{
+ "region": "overseas",
+ "place_ko": "교토",
+ "place_en": "Kyoto",
+ "country_ko": "일본",
+ "hook_ko": "붉게 물든 가을 교토로!",
+ "hook_en": "Autumn in Kyoto",
+ "scenes": [
+  {
+   "type": "cover",
+   "narration": "오늘 어디냥? 붉은 단풍이 절정인 교토로 떠난다냥!",
+   "photo_query": "Kiyomizudera autumn Kyoto Japan",
+   "photo_kind": "place"
+  },
+  {
+   "type": "talk",
+   "speaker": "hermi",
+   "pose": "hermi_wave",
+   "label_ko": "왜 지금 교토?",
+   "label_en": "Why Kyoto now?",
+   "subtitle": "지금이 단풍 절정기!\n야간 라이트업도 환상이다냥",
+   "subtitle_en": "Peak autumn foliage is now!\nNight illuminations are magical",
+   "narration": "지금이 단풍 절정기! 밤에 열리는 야간 라이트업도 환상이다냥.",
+   "photo_query": "autumn leaves Kyoto temple Japan",
+   "photo_kind": "place"
+  },
+  {
+   "type": "talk",
+   "speaker": "hermi",
+   "pose": "hermi_camera",
+   "label_ko": "기요미즈데라",
+   "label_en": "Kiyomizu-dera",
+   "subtitle": "붉은 숲 위에 뜬 목조 본당,\n가을 야경이 예술이다냥",
+   "subtitle_en": "Wooden temple over red forest,\nthe autumn night view is art",
+   "narration": "붉은 숲 위에 뜬 본당! 교토 단풍 야경의 끝판왕이다냥.",
+   "photo_query": "Kiyomizu-dera temple autumn night Kyoto Japan",
+   "photo_kind": "place"
+  },
+  {
+   "type": "talk",
+   "speaker": "hermi",
+   "pose": "hermi_point",
+   "label_ko": "도후쿠지",
+   "label_en": "Tofukuji Temple",
+   "subtitle": "통천교 구름다리에서 보는\n단풍 바다가 압권이다냥",
+   "subtitle_en": "Sea of maple trees seen\nfrom Tsutenkyo Bridge is stunning",
+   "narration": "통천교 다리 위에서 내려다보는 붉은 단풍 바다가 압권이다냥.",
+   "photo_query": "Tofukuji temple bridge autumn Kyoto Japan",
+   "photo_kind": "place"
+  },
+  {
+   "type": "talk",
+   "speaker": "hermi",
+   "pose": "hermi_jump",
+   "label_ko": "아라시야마",
+   "label_en": "Arashiyama",
+   "subtitle": "도게츠교 건너 대나무숲까지\n가을 산책 완벽 코스다냥",
+   "subtitle_en": "Cross Togetsukyo Bridge to\nbamboo grove for a scenic walk",
+   "narration": "도게츠교 건너 푸른 대나무숲까지 걷는 가을 힐링 코스다냥.",
+   "photo_query": "Arashiyama bamboo grove autumn Kyoto Japan",
+   "photo_kind": "place"
+  },
+  {
+   "type": "talk",
+   "speaker": "nyami",
+   "pose": "nyami_sit",
+   "label_ko": "꼭 먹어봐야 할 메뉴 ①",
+   "label_en": "Must-eat #1",
+   "subtitle": "쌀쌀할 땐 교토 유도후!\n뜨끈하고 담백한 두부다냥",
+   "subtitle_en": "Kyoto Yudofu on chilly days!\nWarm, gentle boiled tofu dish",
+   "narration": "냐미 차례! 쌀쌀한 날엔 따끈하고 부드러운 교토 유도후가 최고다냥.",
+   "photo_query": "yudofu hot pot boiled tofu japanese food",
+   "photo_kind": "food"
+  },
+  {
+   "type": "talk",
+   "speaker": "nyami",
+   "pose": "nyami_icecream",
+   "label_ko": "꼭 먹어봐야 할 메뉴 ②",
+   "label_en": "Must-eat #2",
+   "subtitle": "진한 우지 말차 파르페!\n맛집 정보는 캡션 확인해냥",
+   "subtitle_en": "Rich Uji matcha parfait!\nRestaurant info in caption",
+   "narration": "달콤쌉싸름한 우지 말차 파르페! 맛집 정보는 캡션에서 확인해냥.",
+   "photo_query": "matcha green tea parfait dessert japanese food",
+   "photo_kind": "food"
+  },
+  {
+   "type": "talk",
+   "speaker": "nyami",
+   "pose": "nyami_walk",
+   "label_ko": "같이 가면 좋은 곳",
+   "label_en": "Also nearby",
+   "subtitle": "교토의 부엌 니시키 시장!\n길거리 먹방 찍어보자냥",
+   "subtitle_en": "Nishiki Market, Kyoto's kitchen!\nTaste delicious street food",
+   "narration": "교토의 부엌 니시키 시장에서 맛있는 길거리 음식도 정복하자냥.",
+   "photo_query": "Nishiki Market street food Kyoto Japan",
+   "photo_kind": "place"
+  },
+  {
+   "type": "info",
+   "speaker": "hermi",
+   "pose": "hermi_point",
+   "narration": "교토 단풍 여행 꿀팁은 저장해두고 확인하라냥!",
+   "photo_query": "Kyoto autumn leaves temple Japan",
+   "photo_kind": "place"
+  },
+  {
+   "type": "summary",
+   "summary": [
+    "기요미즈데라 & 도후쿠지 단풍",
+    "아라시야마 대나무숲 산책",
+    "뜨끈한 유도후와 우지 말차 디저트"
+   ],
+   "narration": "화려한 가을 단풍과 맛있는 교토 요리까지! 저장하고 떠나자냥!",
+   "photo_query": "Kyoto traditional street autumn Japan",
+   "photo_kind": "place"
+  }
+ ],
+ "info": {
+  "address_ko": "일본 교토부 교토시 (기요미즈데라: 히가시야마구 시미즈 1초메 294)",
+  "address_en": "Kyoto-shi, Kyoto Prefecture, Japan",
+  "best_ko": "11월 중순~12월 초 (가을 단풍 절정기 및 야간 특별관람 시즌)",
+  "best_en": "Mid-Nov to early Dec (peak autumn colors & night illuminations)",
+  "transport_ko": "인천/김포 → 간사이 공항(KIX) 직항 약 1시간 40분, 공항에서 하루카 특급열차로 교토역까지 약 75분 소요",
+  "transport_en": "Fly to Kansai Airport (KIX, ~1 hr 40 min from Seoul), then Kansai Airport Express 'Haruka' to Kyoto Station (~75 min)",
+  "tip_ko": "단풍 시즌엔 주요 사찰 야간 라이트업 줄이 길어요. 일몰 30분 전 미리 입장하거나 이른 아침 방문을 추천해요. 교토 시내버스는 정체가 심하니 지하철+전철 조합 이동이 빨라요.",
+  "tip_en": "Lines for night illuminations get very long. Arrive 30 minutes before sunset or early morning. Take trains/subways instead of buses to avoid autumn traffic."
+ },
+ "must_eat": [
+  {
+   "ko": "교토 유도후 (뜨끈한 다시마 육수 두부 냄비 요리)",
+   "en": "Kyoto Yudofu (simmered tofu hot pot)"
+  },
+  {
+   "ko": "우지 말차 파르페 & 라떼 (전통 녹차 디저트)",
+   "en": "Uji Matcha Parfait & Green Tea Latte"
+  },
+  {
+   "ko": "니시키 시장 꼬치 구이 & 교토풍 계란말이",
+   "en": "Nishiki Market skewers & Kyoto-style rolled omelet"
+  }
+ ],
+ "restaurants": [],
+ "blog": {
+  "title_ko": "[오늘 어디냥?] 11월 교토 단풍 여행 코스 | 기요미즈데라·도후쿠지·아라시야마 + 유도후 맛집",
+  "title_en": "[Where to, Meow?] Kyoto Autumn Foliage Guide: Kiyomizu-dera, Tofukuji, Arashiyama & Yudofu",
+  "intro_ko": "11월 하순에서 12월 초순, 교토는 천 년 고도의 고즈넉함 위에 붉은 단풍이 쏟아져 내리는 황금기예요. 기요미즈데라의 환상적인 야간 조명부터 도후쿠지의 불타는 단풍 계곡까지, 1년 중 가장 낭만적인 풍경을 만날 수 있습니다. 간사이 공항에서 특급열차 하루카를 타면 교토역까지 약 75분 만에 도착해 가을 단기 여행으로도 제격이에요. 모험냥 허미와 먹방냥 냐미가 직접 추천하는 알짜배기 교토 단풍 코스를 소개합니다.",
+  "intro_en": "From late November to early December, Kyoto turns into a breathtaking autumn wonderland draped in brilliant crimson and gold maples. From Kiyomizu-dera's illuminated night pagoda to the fiery foliage valley of Tofukuji, this is the most romantic time of year to visit. Taking the Kansai Airport Express 'Haruka' gets you to Kyoto Station in just 75 minutes, making it an easy getaway. Here is the ultimate Kyoto autumn itinerary curated by Hermi and Nyami.",
+  "sections": [
+   {
+    "heading_ko": "기요미즈데라 (청수사)",
+    "heading_en": "Kiyomizu-dera Temple",
+    "body_ko": "오토와산 중턱 절벽에 못 하나 없이 세워진 139개의 느릅나무 기둥 무대가 압권인 교토의 대표 사찰입니다. 가을이 되면 본당 무대 아래로 끝없는 붉은 단풍 바다가 펼쳐져 마치 구름 위에 떠 있는 듯한 느낌을 줍니다. 특히 단풍 시즌에만 운영되는 야간 특별관람은 푸른 빛줄기가 밤하늘을 가르고 단풍림이 은은하게 빛나 말문이 막힐 정도로 아름답습니다. 야간 관람 대기 줄이 길 수 있으니 점등 시간인 오후 5시 30분 전후에 미리 대기하거나 완전히 늦은 저녁 타임을 노리는 것이 좋습니다.",
+    "body_en": "Perched on the cliffs of Mount Otowa, Kiyomizu-dera is celebrated for its historic wooden main hall built entirely without nails. In autumn, the vast valley beneath the temple deck turns into a vibrant sea of fiery red maple leaves. The seasonal night illumination is truly unforgettable, with a soft blue beam cutting through the night sky and lighting up the glowing canopy. The evening queues can be substantial, so arriving slightly before lighting time around 5:30 PM or after the peak dinnertime rush is highly recommended."
+   },
+   {
+    "heading_ko": "도후쿠지 (동복사)",
+    "heading_en": "Tofukuji Temple",
+    "body_ko": "교토 현지인들이 단풍 여행지로 손꼽는 최고의 명소 중 하나는 바로 도후쿠지입니다. 사찰 경내의 통천교(쓰텐교) 회랑에 서면 계곡을 가득 메운 2천여 그루의 단풍나무가 불꽃처럼 일렁이는 장관을 360도로 감상할 수 있습니다. 붉은색과 주황색, 노란색이 층층이 겹쳐지는 그러데이션은 교토에서도 손에 꼽히는 절경입니다. 단풍 피크 시간대에는 다리 위 정체가 심하므로 오전 8시 30분 개장 시간에 맞춰 오픈런하는 동선을 강력 추천합니다.",
+    "body_en": "Regarded by locals as one of Kyoto's absolute best autumn spots, Tofukuji is renowned for its iconic Tsutenkyo covered bridge. Standing on this wooden walkway offers panoramic views over a dramatic ravine blanketed by more than two thousand crimson maple trees. The layers of deep red, burnt orange, and golden hues create an awe-inspiring gradient found nowhere else in the city. Because pedestrian traffic on the bridge peaks around midday, arriving right at the 8:30 AM gate opening ensures a peaceful and spectacular view."
+   },
+   {
+    "heading_ko": "아라시야마 & 치쿠린",
+    "heading_en": "Arashiyama & Bamboo Grove",
+    "body_ko": "교토 서쪽에 위치한 아라시야마는 잔잔하게 흐르는 호즈강과 붉게 물든 산세가 어우러져 평화로운 가을 정취를 선사합니다. 강을 가로지르는 목조 다리 도게츠교를 건넌 뒤, 하늘을 찌를 듯 솟아오른 대나무숲 치쿠린 산책로로 향해보세요. 바람에 사각거리는 대나무 소리를 들으며 걷다 보면 단풍 명소인 텐류지의 차경 정원까지 자연스럽게 연결됩니다. 인력거를 타고 호즈강변을 둘러보거나 아라비카 퍼센트 커피에서 라떼 한 잔을 들고 산책하는 여유도 즐겨보세요.",
+    "body_en": "Located in western Kyoto, Arashiyama offers a serene countryside landscape framed by the gentle Hozu River and mountains dotted with fall foliage. After strolling across the historic wooden Togetsukyo Bridge, follow the path into the iconic Arashiyama Bamboo Grove (Chikurin). The rustling sound of towering green bamboo stalks creates a soothing contrast to the nearby autumn colors of Tenryu-ji's zen garden. Enjoying a hot cup of latte along the riverbank from % Arabica makes for a picture-perfect morning."
+   },
+   {
+    "heading_ko": "교토 유도후 & 우지 말차 디저트",
+    "heading_en": "Kyoto Yudofu & Uji Matcha Sweets",
+    "body_ko": "쌀쌀한 가을바람이 불어올 때 교토에서 반드시 맛봐야 할 향토음식은 다시마 육수에 끓여낸 두부 냄비 요리 '유도후'입니다. 맑은 물로 만든 교토 두부는 잡내 없이 담백하고 푸딩처럼 부드러워, 특제 폰즈 소스와 파, 생강을 곁들여 먹으면 몸과 마음이 사르르 녹아내립니다. 식사 후에는 찻집에서 진하고 쌉싸름한 교토 우지 말차 소프트아이스크림과 떡, 팥이 어우러진 특선 말차 파르페로 달콤하게 마무리해보세요.",
+    "body_en": "When the autumn air turns brisk, nothing warms you up better than Kyoto's signature simmered tofu hot pot, 'Yudofu'. Made with pure local spring water, the delicate tofu is gently simmered with kelp and served with seasoned dashi-soy sauce, grated ginger, and scallions. Afterward, treat yourself at a traditional tea salon to a multi-layered Uji matcha parfait loaded with intense green tea gelato, chewy shiratama dango, and sweet red bean paste."
+   },
+   {
+    "heading_ko": "니시키 시장",
+    "heading_en": "Nishiki Market",
+    "body_ko": "400년의 역사를 자랑하며 '교토의 부엌'이라 불리는 니시키 시장은 좁은 아케이드 골목을 따라 130여 개의 점포가 늘어서 있는 식도락 천국입니다. 가쓰오부시 육수를 듬뿍 머금어 촉촉한 다시마키 계란말이부터 갓 구운 해산물 꼬치, 어묵, 유자 절임까지 다채로운 간식거리를 맛볼 수 있습니다. 시장 내에서는 걸어 다니며 음식을 먹는 행위가 금지되어 있으므로, 음식을 구매한 매장 앞 지정된 취식 공간에서 깔끔하게 즐기는 매너를 지켜주세요.",
+    "body_en": "Boasting over 400 years of history, Nishiki Market is famously known as 'Kyoto's Kitchen', packing more than 130 food stalls along a narrow covered arcade. Here, you can sample freshly prepared local treats including dashi-infused rolled tamagoyaki omelets, grilled seafood skewers, and seasonal Kyoto pickles. Note that walking while eating is prohibited along the narrow street; be sure to stand and enjoy your snacks within the designated tasting area in front of each stall."
+   }
+  ],
+  "closing_ko": "천 년 고도의 옛 건물과 찬란한 단풍, 그리고 따뜻한 두부 요리까지 가을 교토는 그 자체로 하나의 예술입니다. 이번 11월과 12월, 허미와 냐미가 알려준 코스로 잊지 못할 단풍 여행을 계획해 보세요! 각 사찰과 식당의 영업시간 및 관람 요금은 방문 전 공식 사이트에서 다시 확인하시기 바랍니다.",
+  "closing_en": "With timeless wooden temples, radiant foliage, and comforting bowls of yudofu, Kyoto in autumn is an unforgettable masterpiece. Plan your late autumn getaway with Hermi and Nyami's guide! Remember to verify temple opening hours, illumination tickets, and restaurant hours on official websites before your departure."
+ },
+ "sources": [
+  "https://www.kiyomizudera.or.jp/",
+  "https://tofukuji.jp/",
+  "https://tabelog.com/kyoto/A2601/A260301/26001402/",
+  "https://tabelog.com/kyoto/A2601/A260101/26000213/",
+  "https://www.kyoto-nishiki.or.jp/"
+ ],
+ "id": "2026-11-19-kyoto",
+ "date": "2026-11-19",
+ "grounded": false,
+ "credits": [
+  "663highland / CC BY 2.5 / Wikimedia Commons",
+  "GPoulsen / Pixabay",
+  "OnkelP / Pixabay",
+  "chee.hong / CC BY 2.0 / Wikimedia Commons",
+  "htb888 / Pixabay",
+  "jmsuarez / CC BY 2.0 / Wikimedia Commons",
+  "k_michels / Pixabay",
+  "luk1004 / Pixabay",
+  "lumoplank / CC0 / Wikimedia Commons"
+ ],
+ "images": [
+  "cover.jpg",
+  "p00.webp",
+  "p01.webp",
+  "p02.webp",
+  "p03.webp",
+  "p04.webp",
+  "p05.webp",
+  "p06.webp",
+  "p07.webp",
+  "p08.webp",
+  "p09.webp",
+  "thumb.webp"
+ ],
+ "published_at": "2026-11-19T07:52:49Z",
+ "blogger_urls": {
+  "ko": "https://wherecatstoday.blogspot.com/2026/11/11.html"
+ },
+ "ig_permalink": "https://www.instagram.com/reel/Df6lqflFbB1/"
+}
