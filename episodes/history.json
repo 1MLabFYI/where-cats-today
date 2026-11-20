@@ -4,5 +4,11 @@
   "region": "overseas",
   "place_ko": "교토",
   "place_en": "Kyoto"
+ },
+ {
+  "date": "2026-11-20",
+  "region": "domestic",
+  "place_ko": "포항",
+  "place_en": "Pohang"
  }
 ]
