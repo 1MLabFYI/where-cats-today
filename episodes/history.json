@@ -16,5 +16,11 @@
   "region": "overseas",
   "place_ko": "삿포로",
   "place_en": "Sapporo"
+ },
+ {
+  "date": "2026-11-22",
+  "region": "domestic",
+  "place_ko": "통영",
+  "place_en": "Tongyeong"
  }
 ]
