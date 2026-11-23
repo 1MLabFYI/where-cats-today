@@ -22,5 +22,11 @@
   "region": "domestic",
   "place_ko": "통영",
   "place_en": "Tongyeong"
+ },
+ {
+  "date": "2026-11-23",
+  "region": "domestic",
+  "place_ko": "부산",
+  "place_en": "Busan"
  }
 ]
