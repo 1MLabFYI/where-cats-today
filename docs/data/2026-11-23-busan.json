@@ -1,0 +1,228 @@
+{
+ "region": "domestic",
+ "place_ko": "부산",
+ "place_en": "Busan",
+ "country_ko": "대한민국",
+ "hook_ko": "겨울에 더 로맨틱한 부산으로!",
+ "hook_en": "Romantic winter trip to Busan!",
+ "scenes": [
+  {
+   "type": "cover",
+   "narration": "오늘 어디냥? 오늘은 겨울 바다와 빛축제의 도시 부산이다냥!",
+   "photo_query": "Haeundae Beach Busan South Korea",
+   "photo_kind": "place",
+   "photo_query_ko": "부산"
+  },
+  {
+   "type": "talk",
+   "speaker": "hermi",
+   "pose": "hermi_wave",
+   "label_ko": "왜 지금 부산?",
+   "label_en": "Why Busan now?",
+   "subtitle": "겨울 해운대 빛축제와\n스카이캡슐 로맨스다냥",
+   "subtitle_en": "Winter light festival &\nromantic Sky Capsule ride",
+   "narration": "겨울 해운대 빛축제와 해변열차 스카이캡슐이 반겨준다냥!",
+   "photo_query": "Haeundae light festival Busan South Korea",
+   "photo_kind": "place",
+   "photo_query_ko": "해운대해수욕장"
+  },
+  {
+   "type": "talk",
+   "speaker": "hermi",
+   "pose": "hermi_camera",
+   "label_ko": "해운대 블루라인파크",
+   "label_en": "Haeundae Blueline Park",
+   "subtitle": "해안절경 따라 달리는\n스카이캡슐과 해변열차냥",
+   "subtitle_en": "Sky Capsule & Beach Train\ncoastal scenic views",
+   "narration": "해안절경 따라 달리는 스카이캡슐 타고 노을 감상하자냥!",
+   "photo_query": "Haeundae Blueline Park Sky Capsule Busan South Korea",
+   "photo_kind": "place",
+   "photo_query_ko": "해운대블루라인파크"
+  },
+  {
+   "type": "talk",
+   "speaker": "hermi",
+   "pose": "hermi_point",
+   "label_ko": "해운대 빛축제",
+   "label_en": "Haeundae Light Festival",
+   "subtitle": "백사장을 채운 미디어아트\n겨울 밤바다 빛의 향연냥",
+   "subtitle_en": "Media art on the sandy beach\nA winter night glow",
+   "narration": "백사장을 빛으로 물들인 겨울 밤바다 산책은 필수다냥!",
+   "photo_query": "Haeundae beach light festival night Busan South Korea",
+   "photo_kind": "place",
+   "photo_query_ko": "해운대해수욕장"
+  },
+  {
+   "type": "talk",
+   "speaker": "hermi",
+   "pose": "hermi_jump",
+   "label_ko": "감천문화마을",
+   "label_en": "Gamcheon Culture Village",
+   "subtitle": "알록달록 산복도로 마을\n어린왕자와 인생샷냥",
+   "subtitle_en": "Colorful hillside village\nPhoto with the Little Prince",
+   "narration": "알록달록한 계단식 마을에서 어린왕자와 인생샷 남겨라냥!",
+   "photo_query": "Gamcheon Culture Village Busan South Korea",
+   "photo_kind": "place",
+   "photo_query_ko": "감천문화마을"
+  },
+  {
+   "type": "talk",
+   "speaker": "nyami",
+   "pose": "nyami_burger",
+   "label_ko": "꼭 먹어봐야 할 메뉴 ①",
+   "label_en": "Must-eat #1",
+   "subtitle": "뜨끈한 돼지국밥 한 그릇!\n진한 사골 국물이 예술냥",
+   "subtitle_en": "Steaming hot pork soup!\nRich bone broth flavor",
+   "narration": "냐미 차례다냥! 뜨끈하고 진한 돼지국밥 한 그릇으로 추위 싹 날려라냥!",
+   "photo_query": "dwaeji gukbap pork soup korean food",
+   "photo_kind": "food"
+  },
+  {
+   "type": "talk",
+   "speaker": "nyami",
+   "pose": "nyami_icecream",
+   "label_ko": "꼭 먹어봐야 할 메뉴 ②",
+   "label_en": "Must-eat #2",
+   "subtitle": "바삭 고소 씨앗호떡!\n맛집 정보는 캡션 확인",
+   "subtitle_en": "Crispy seed hotteok pancake!\nCheck caption for details",
+   "narration": "바삭한 씨앗호떡은 꼭 맛봐라냥! 맛집 정보는 캡션에서 확인해냥!",
+   "photo_query": "seed hotteok pancake korean food",
+   "photo_kind": "food"
+  },
+  {
+   "type": "talk",
+   "speaker": "nyami",
+   "pose": "nyami_walk",
+   "label_ko": "같이 가면 좋은 곳",
+   "label_en": "Also nearby",
+   "subtitle": "부평깡통 야시장에서\n맛있는 길거리 음식 털자냥",
+   "subtitle_en": "Explore night market foods\nat Bupyeong Kkangtong Market",
+   "narration": "부평깡통 야시장에서 유부전골이랑 다양한 길거리 음식 즐겨라냥!",
+   "photo_query": "Bupyeong Kkangtong Market Busan South Korea",
+   "photo_kind": "place",
+   "photo_query_ko": "부평깡통시장"
+  },
+  {
+   "type": "info",
+   "speaker": "hermi",
+   "pose": "hermi_point",
+   "narration": "부산 겨울 여행 정보 저장해두고 써먹으라냥!",
+   "photo_query": "Haeundae night view Busan South Korea",
+   "photo_kind": "place",
+   "photo_query_ko": "부산"
+  },
+  {
+   "type": "summary",
+   "summary": [
+    "블루라인파크 스카이캡슐 감상",
+    "해운대 빛축제 & 감천문화마을",
+    "뜨끈한 돼지국밥 & 씨앗호떡"
+   ],
+   "narration": "스카이캡슐, 빛축제, 돼지국밥까지! 저장하고 부산 떠나자냥!",
+   "photo_query": "Busan night ocean view South Korea",
+   "photo_kind": "place",
+   "photo_query_ko": "부산"
+  }
+ ],
+ "info": {
+  "address_ko": "부산광역시 해운대구 · 중구 · 사하구 일대",
+  "address_en": "Haeundae-gu, Jung-gu, and Saha-gu, Busan, Korea",
+  "best_ko": "11~2월 겨울 빛축제 & 바다열차 시기",
+  "best_en": "Nov–Feb (Winter light festival & sea train)",
+  "transport_ko": "KTX 서울역 → 부산역 약 2시간 30분",
+  "transport_en": "KTX Seoul Station → Busan Station (~2.5 hrs)",
+  "tip_ko": "블루라인파크 스카이캡슐은 일몰 시각 맞춰 사전 예매 필수",
+  "tip_en": "Book Sky Capsule in advance to catch sunset"
+ },
+ "must_eat": [
+  {
+   "ko": "돼지국밥",
+   "en": "Dwaeji gukbap (Pork soup with rice)"
+  },
+  {
+   "ko": "씨앗호떡",
+   "en": "Seed hotteok (Sweet seed pancake)"
+  },
+  {
+   "ko": "부평시장 유부전골",
+   "en": "Bupyeong Market fried tofu pouch soup"
+  }
+ ],
+ "restaurants": [],
+ "blog": {
+  "title_ko": "[오늘 어디냥?] 부산 겨울여행 코스 | 해운대 블루라인파크·빛축제·감천문화마을 + 돼지국밥 맛집",
+  "title_en": "[Where to, Meow?] Busan Winter Trip: Haeundae Blueline Park, Light Festival, Gamcheon Village & Pork Soup",
+  "intro_ko": "겨울 바다와 화려한 빛의 낭만을 동시에 즐기고 싶다면 부산으로 떠나보세요. 11월부터 본격 시작되는 해운대 빛축제와 해안절경을 달리는 블루라인파크 스카이캡슐은 겨울 부산 여행의 핵심입니다. KTX로 서울역에서 부산역까지 약 2시간 30분이면 도착해 주말 여행으로도 최적입니다. 허미와 냐미가 제안하는 알찬 겨울 부산 여행 코스를 확인해보세요.",
+  "intro_en": "If you want to experience romantic winter ocean views alongside vibrant light displays, Busan is the place to go. The Haeundae Light Festival and the scenic Sky Capsule at Haeundae Blueline Park are winter highlights. Taking the KTX from Seoul Station gets you to Busan in about 2.5 hours, making it perfect for a weekend trip. Check out the winter Busan route prepared by Hermi and Nyami.",
+  "sections": [
+   {
+    "heading_ko": "해운대 블루라인파크",
+    "body_ko": "해운대 블루라인파크는 옛 동해남부선 철길을 재개발해 해안 절경을 조망할 수 있는 부산의 대표 액티비티입니다. 청사포에서 미포까지 연결되는 스카이캡슐은 높은 레일 위에서 바다와 노을을 한눈에 담을 수 있어 연인과 가족 방문객에게 인기가 높습니다. 주말 및 일몰 시간대 탑승권은 매진이 빠르므로 방문 전 공식 웹사이트에서 사전 예매하는 것이 좋습니다. 미포역이나 청사포역 주변에는 바다 뷰 카페가 많아 탑승 전후로 여유롭게 티타임을 즐기기도 좋습니다. 겨울철 바람이 쌀쌀할 수 있으니 겉옷을 든든히 챙기는 것을 추천합니다.",
+    "heading_en": "Haeundae Blueline Park",
+    "body_en": "Haeundae Blueline Park repurposes the old Donghae Nambu Line railway into a scenic coastal walk and ride in Busan. The Sky Capsule connecting Cheongsapo and Mipo offers breathtaking views of the ocean and sunset from an elevated track. Sunset and weekend time slots sell out quickly, so advance online booking is highly recommended. Plenty of sea-view cafés around Mipo and Cheongsapo stations let you relax before or after your ride. Keep a warm coat handy as coastal winter breezes can get chilly."
+   },
+   {
+    "heading_ko": "해운대 빛축제",
+    "body_ko": "겨울이 되면 해운대해수욕장 백사장 전체가 화려한 미디어아트와 조명 구조물로 물듭니다. 해운대 빛축제는 바다와 빛이 어우러진 신비로운 풍경을 연출하여 밤 산책 코스로 제격입니다. 백사장 구역 외에도 구남로 광장까지 빛의 터널과 포토존이 길게 이어져 볼거리가 풍성합니다. 입장료는 무료이며 점등 시간은 보통 일몰 직후부터 밤 열한 시까지 운영됩니다. 밤바다 바람이 강하게 불 수 있으니 방한용품을 챙겨 따뜻하게 관람하시기 바랍니다.",
+    "heading_en": "Haeundae Light Festival",
+    "body_en": "Every winter, the vast sandy expanse of Haeundae Beach transforms into a glowing wonderland of media art and light installations. The Haeundae Light Festival combines the rhythm of ocean waves with luminous sculptures, creating a magical night stroll. Light tunnels and photo spots extend from the beach up to Gunam-ro square, giving visitors plenty to see. Admission is free, with lights usually turned on from sunset until around 11:00 PM. Sea winds can be cold at night, so dress warmly with scarves and gloves."
+   },
+   {
+    "heading_ko": "감천문화마을",
+    "body_ko": "알록달록한 파스텔톤 집들이 계단식으로 밀집한 감천문화마을은 한국의 마추픽추로 불리는 대표 출사지입니다. 골목길마다 벽화와 예술 작품이 설치되어 있어 천천히 거닐며 탐방하기 좋습니다. 특히 마을을 내려다보는 언덕 위 어린왕자와 여우 동상은 가장 인기 있는 포토스팟입니다. 실제 주민들이 거주하는 생활 공간이므로 관람 시 고성방가는 자제해야 합니다. 경사가 다소 가파르므로 편한 운동화를 착용하고 방문하는 것을 권장합니다.",
+    "heading_en": "Gamcheon Culture Village",
+    "body_en": "Famous for its pastel-colored houses stacked along steep hills, Gamcheon Culture Village is often dubbed the Machu Picchu of Korea. Murals, sculptures, and art installations line the narrow alleys, making it a joy to explore on foot. The statue of the Little Prince and the Desert Fox overlooking the village is the most iconic photo spot. Since local residents live here, visitors are kindly asked to keep noise levels down while exploring. Wear comfortable walking shoes as the village features many stairs and inclines."
+   },
+   {
+    "heading_ko": "부산의 겨울 맛, 돼지국밥과 씨앗호떡",
+    "body_ko": "추운 겨울 부산 여행에서 빠질 수 없는 음식이 바로 뜨끈한 돼지국밥입니다. 푹 고아낸 돼지 사골 국물에 부드러운 수육과 부추를 넣어 밥을 말아 먹으면 몸이 금세 따뜻해집니다. 부산역 근처나 서면 등 도심 곳곳에 오랜 전통을 가진 돼지국밥 명가들이 자리 잡고 있습니다. 식사 후 남포동 BIFF광장으로 이동해 갓 튀겨낸 씨앗호떡으로 고소한 디저트를 즐겨보세요. 바삭한 호떡 속에 견과류가 가득 차 있어 매력적인 겨울 별미입니다.",
+    "heading_en": "Busan's Winter Delights: Pork Soup & Seed Hotteok",
+    "body_en": "No winter trip to Busan is complete without a steaming bowl of Dwaeji Gukbap (pork soup with rice). Rich pork bone broth served with tender pork slices and fresh chives instantly warms you up on a cold day. Historic gukbap joints can be found near Busan Station and in the bustling Seomyeon district. After your meal, head to BIFF Square in Nampo-dong for a hot, crispy seed hotteok pancake stuffed with crunchy nuts. It is the ultimate winter comfort food walk in Busan."
+   },
+   {
+    "heading_ko": "부평깡통시장 야시장",
+    "body_ko": "저녁 시간에는 남포동 부평깡통시장을 찾아 다채로운 야시장 먹거리를 체험해보세요. 밤 일곱 시 반부터 열리는 야시장 매대에서는 유부전골, 비빔당면부터 다양한 아시아 길거리 음식까지 맛볼 수 있습니다. 좁은 골목을 따라 활기찬 시장 분위기가 펼쳐져 식도락 여행의 즐거움을 더해줍니다. 인기 매대는 대기 줄이 길 수 있으니 여유 있게 둘러보는 것이 좋습니다. 현금이나 계좌이체가 편리한 점포가 많으니 미리 준비하면 유용합니다.",
+    "heading_en": "Bupyeong Kkangtong Night Market",
+    "body_en": "In the evening, dive into the vibrant street food culture at Bupyeong Kkangtong Night Market in Nampo-dong. Starting at 7:30 PM, market stalls serve iconic local dishes like fried tofu pouch soup, spicy bibim noodles, and international snacks. Walking through the lively stalls offers a memorable culinary adventure for food lovers. Popular stalls often have lines, so take your time and stroll through at a relaxed pace. Bringing small cash or having mobile transfer ready will make ordering easier."
+   }
+  ],
+  "closing_ko": "푸른 겨울바다, 화려한 빛축제, 그리고 따뜻한 국밥 한 그릇까지! 이번 주말엔 허미·냐미와 함께 부산으로 떠나보세요. 매장 운영시간과 빛축제 일정은 방문 전 꼭 확인하세요.",
+  "closing_en": "Blue winter seas, brilliant light festivals, and a piping hot bowl of pork soup — head to Busan with Hermi and Nyami this weekend! Please double-check operating hours and festival schedules before visiting."
+ },
+ "sources": [
+  "https://www.ktriptips.com/kor/food/133292",
+  "https://www.ktriptips.com/kor/food/133501",
+  "https://www.ktriptips.com/kor/shopping/132788",
+  "https://www.bluelinepark.com"
+ ],
+ "id": "2026-11-23-busan",
+ "date": "2026-11-23",
+ "grounded": false,
+ "credits": [
+  "33284462 / Pixabay",
+  "AKuptsova / Pixabay",
+  "Bernard Gagnon / CC0 / Wikimedia Commons",
+  "Weli'mi'nakwan / CC BY 2.0 / Wikimedia Commons",
+  "by frakorea / CC BY 2.0 / Wikimedia Commons",
+  "paezang / Pixabay",
+  "viarami / Pixabay",
+  "yujeong_Huh / Pixabay"
+ ],
+ "images": [
+  "cover.jpg",
+  "p00.webp",
+  "p01.webp",
+  "p02.webp",
+  "p03.webp",
+  "p04.webp",
+  "p07.webp",
+  "p08.webp",
+  "p09.webp",
+  "thumb.webp"
+ ],
+ "published_at": "2026-11-23T08:05:31Z",
+ "blogger_urls": {
+  "ko": "https://wherecatstoday.blogspot.com/2026/11/blog-post_23.html"
+ },
+ "ig_permalink": "https://www.instagram.com/reel/DgE6SosjBg1/"
+}
