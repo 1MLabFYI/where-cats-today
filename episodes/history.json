@@ -28,5 +28,11 @@
   "region": "domestic",
   "place_ko": "부산",
   "place_en": "Busan"
+ },
+ {
+  "date": "2026-11-24",
+  "region": "overseas",
+  "place_ko": "타이베이",
+  "place_en": "Taipei"
  }
 ]
