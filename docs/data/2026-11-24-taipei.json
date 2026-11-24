@@ -1,0 +1,228 @@
+{
+ "region": "overseas",
+ "place_ko": "타이베이",
+ "place_en": "Taipei",
+ "country_ko": "대만",
+ "hook_ko": "겨울 대만 타이베이 여행!",
+ "hook_en": "Winter Getaway to Taipei!",
+ "scenes": [
+  {
+   "type": "cover",
+   "speaker": "hermi",
+   "pose": "hermi_wave",
+   "narration": "오늘 어디냥? 오늘은 따뜻하고 화려한 겨울 타이베이로 떠난다냥!",
+   "photo_query": "Taipei 101 city skyline Taiwan",
+   "photo_kind": "place"
+  },
+  {
+   "type": "talk",
+   "speaker": "hermi",
+   "pose": "hermi_point",
+   "label_ko": "왜 지금 타이베이?",
+   "label_en": "Why Taipei now?",
+   "subtitle": "선선한 겨울 날씨와\n화려한 크리스마스 축제!",
+   "subtitle_en": "Cool winter weather &\nfestive Christmas events!",
+   "narration": "선선해서 걷기 딱 좋은 계절! 화려한 겨울 크리스마스 축제도 시작됐다냥!",
+   "photo_query": "New Taipei City Christmasland illumination Taiwan",
+   "photo_kind": "place"
+  },
+  {
+   "type": "talk",
+   "speaker": "hermi",
+   "pose": "hermi_camera",
+   "label_ko": "타이베이 101",
+   "label_en": "Taipei 101",
+   "subtitle": "전망대에서 보는 도심 야경\n랜드마크 관람은 필수다냥",
+   "subtitle_en": "City night views from above —\na must-visit landmark!",
+   "narration": "전망대에서 도심 야경 감상하기! 랜드마크 타이베이 백일은 필수 코스다냥.",
+   "photo_query": "Taipei 101 night view Taiwan",
+   "photo_kind": "place"
+  },
+  {
+   "type": "talk",
+   "speaker": "hermi",
+   "pose": "hermi_camera2",
+   "label_ko": "지우펀 홍등거리",
+   "label_en": "Jiufen Old Street",
+   "subtitle": "붉은 홍등이 빛나는 거리\n동화 속 세상에 온 듯하다냥",
+   "subtitle_en": "Red lanterns glowing —\nfeels like a fairytale world",
+   "narration": "붉은 홍등이 골목을 밝히는 거리! 동화 속에 들어온 기분이다냥.",
+   "photo_query": "Jiufen Old Street night Taiwan",
+   "photo_kind": "place"
+  },
+  {
+   "type": "talk",
+   "speaker": "hermi",
+   "pose": "hermi_jump",
+   "label_ko": "신베이 크리스마스랜드",
+   "label_en": "New Taipei Christmasland",
+   "subtitle": "겨울 대만 최대의 빛 축제\n반차오역 전체가 반짝인다냥",
+   "subtitle_en": "Taiwan's biggest winter light show\nglowing around Banqiao Station",
+   "narration": "겨울 대만 최고의 빛 축제! 반차오역 도심 전체가 반짝반짝 빛난다냥.",
+   "photo_query": "New Taipei Christmasland illumination Taiwan",
+   "photo_kind": "place"
+  },
+  {
+   "type": "talk",
+   "speaker": "nyami",
+   "pose": "nyami_burger",
+   "label_ko": "꼭 먹어봐야 할 메뉴 ①",
+   "label_en": "Must-eat #1",
+   "subtitle": "진한 국물의 우육면!\n달콤 짭조름 루로우판도 강추",
+   "subtitle_en": "Rich beef noodle soup &\nsavory braised pork rice!",
+   "narration": "냐미 차례다냥! 진한 고기 국물 우육면에 달콤 짭짤 루로우판 먹자냥!",
+   "photo_query": "taiwanese beef noodle soup taiwan food",
+   "photo_kind": "food"
+  },
+  {
+   "type": "talk",
+   "speaker": "nyami",
+   "pose": "nyami_boba",
+   "label_ko": "꼭 먹어봐야 할 메뉴 ②",
+   "label_en": "Must-eat #2",
+   "subtitle": "쫀득한 버블티 한 잔!\n맛집 정보는 캡션 확인해냥",
+   "subtitle_en": "Chewy boba milk tea!\nCheck caption for food spots",
+   "narration": "쫀득한 펄 가득 버블티! 맛집 정보는 캡션에서 확인해냥!",
+   "photo_query": "bubble boba milk tea taiwan food",
+   "photo_kind": "food"
+  },
+  {
+   "type": "talk",
+   "speaker": "nyami",
+   "pose": "nyami_walk",
+   "label_ko": "같이 가면 좋은 곳",
+   "label_en": "Also nearby",
+   "subtitle": "화려한 야시장 산책하며\n길거리 야식 도장깨기 하자냥",
+   "subtitle_en": "Stroll through the night market\nand try local street bites",
+   "narration": "화려한 라오허제 야시장에서 맛있는 길거리 음식 도장 깨기 하자냥!",
+   "photo_query": "Raohe Street Night Market Taipei Taiwan",
+   "photo_kind": "place"
+  },
+  {
+   "type": "info",
+   "speaker": "hermi",
+   "pose": "hermi_point",
+   "narration": "알찬 타이베이 여행 정보는 저장하고 써먹으라냥!",
+   "photo_query": "Taipei city view Taiwan",
+   "photo_kind": "place"
+  },
+  {
+   "type": "summary",
+   "speaker": "hermi",
+   "pose": "hermi_wave",
+   "summary": [
+    "타이베이 101 야경 & 지우펀 홍등거리",
+    "신베이 크리스마스랜드 빛 축제",
+    "우육면 · 버블티 · 라오허제 야시장"
+   ],
+   "narration": "타이베이 백일 야경과 지우펀, 크리스마스 축제에 우육면까지! 저장해두라냥!",
+   "photo_query": "Taipei 101 skyline Taiwan",
+   "photo_kind": "place"
+  }
+ ],
+ "info": {
+  "address_ko": "대만 타이베이시 및 신베이시 일대",
+  "address_en": "Taipei City & New Taipei City, Taiwan",
+  "best_ko": "11월~2월 (선선하고 쾌적한 겨울 시즌, 크리스마스 축제 기간)",
+  "best_en": "Nov–Feb (cool winter season & Christmas festival)",
+  "transport_ko": "인천/김포 출발 → 타오위안/송산 공항 직항 (약 2시간 30분 소요)",
+  "transport_en": "Direct flights from ICN/GMP to TPE/TSA (~2.5 hrs)",
+  "tip_ko": "이지카드(EasyCard) 구매 시 지하철·버스 및 편의점 결제가 편리함",
+  "tip_en": "Get an EasyCard for convenient metro, bus, and shop payments"
+ },
+ "must_eat": [
+  {
+   "ko": "우육면 (Beef Noodle Soup)",
+   "en": "Taiwanese Beef Noodle Soup"
+  },
+  {
+   "ko": "버블 밀크티 (Boba Milk Tea)",
+   "en": "Bubble Milk Tea"
+  },
+  {
+   "ko": "루로우판 (Braised Pork Rice)",
+   "en": "Lu Rou Fan (Braised Pork Rice)"
+  }
+ ],
+ "restaurants": [],
+ "blog": {
+  "title_ko": "[오늘 어디냥?] 겨울 대만 타이베이 3박 4일 여행 코스 | 타이베이 101·지우펀·신베이 크리스마스랜드·우육면 맛집",
+  "title_en": "[Where to, Meow?] Taipei Winter Travel Guide: Taipei 101, Jiufen, New Taipei Christmasland & Local Bites",
+  "intro_ko": "겨울철 부담 없이 떠나기 좋은 해외 여행지를 찾는다면 대만 타이베이가 제격입니다. 11월부터 2월까지는 평균 기온이 18~22도 안팎으로 선선해 야외 활동을 즐기기에 매우 쾌적합니다. 특히 연말 시즌에는 신베이 크리스마스랜드 등 대형 빛 축제가 열려 낭만적인 밤을 보낼 수 있습니다. 허미와 냐미가 다녀온 타이베이 알짜배기 추천 코스를 소개합니다.",
+  "intro_en": "If you are looking for an easy winter getaway, Taipei is a top pick. From November to February, temperatures hover around 18–22°C, making outdoor sightseeing comfortable. During the winter season, grand light illuminations like New Taipei City Christmasland bring festive magic to the city nights. Here is the curated Taipei itinerary recommended by Hermi and Nyami.",
+  "sections": [
+   {
+    "heading_ko": "타이베이 101 전망대",
+    "heading_en": "Taipei 101 Observatory",
+    "body_ko": "타이베이의 상징이자 초고층 빌딩인 타이베이 101은 도시 전체를 한눈에 조망하기 가장 좋은 장소입니다. 89층 실내 전망대에서는 360도로 펼쳐지는 화려한 타이베이 도심 야경을 감상할 수 있습니다. 89층에 위치한 거대 댐퍼(Damper) 구조물도 놓치지 말고 둘러보는 것이 좋습니다. 해 질 무렵에 방문하면 일몰과 야경을 동시에 즐길 수 있어 만족도가 높습니다. 미리 모바일 입장권을 예매하면 대기 시간을 줄일 수 있으니 사전 예약을 권장합니다.",
+    "body_en": "Taipei 101, the city's iconic skyscraper, offers the ultimate vantage point over Taipei. From the indoor observatory on the 89th floor, visitors enjoy panoramic 360-degree night views of the cityscape. Be sure to check out the massive tuned mass damper located inside the upper floors. Arriving right before sunset lets you experience both daylight vistas and evening lights. Booking tickets online in advance is highly recommended to skip long lines."
+   },
+   {
+    "heading_ko": "지우펀 홍등거리",
+    "heading_en": "Jiufen Old Street",
+    "body_ko": "지우펀은 감성적인 붉은 홍등과 좁은 골목길이 어우러져 동화 분위기를 자아내는 명소입니다. 수치루 계단길을 따라 찻집과 디저트 점포들이 빽빽하게 이어져 구경하는 재미가 쏠쏠합니다. 해가 지면 홍등에 불이 켜지면서 지우펀 특유의 몽환적인 분위기가 극에 달합니다. 지우펀은 계단이 많고 좁으므로 편안한 운동화를 착용하는 것이 필수입니다. 타이베이 시내에서 버스나 투어 차량을 이용하면 1시간 내외로 이동할 수 있습니다.",
+    "body_en": "Jiufen Old Street is famous for its atmospheric narrow lanes adorned with red lanterns. Walking up Shuqi Road reveals cozy teahouses and traditional dessert shops on either side. As evening falls and the red lanterns light up, Jiufen transforms into a magical fairytale setting. Wear comfortable walking shoes as the village features steep stairs and stone steps. Direct buses or day tours from central Taipei reach Jiufen in about an hour."
+   },
+   {
+    "heading_ko": "신베이 크리스마스랜드",
+    "heading_en": "New Taipei City Christmasland",
+    "body_ko": "매년 11월 중순부터 1월 초까지 반차오역 광장에서 펼쳐지는 대만 최대의 겨울 빛 축제입니다. 신베이시청 건물에 연출되는 대형 미디어 파사드 쇼와 테마별 조명 터널이 연말 분위기를 연출합니다. 반차오역 지하철과 바로 연결되어 있어 대중교통 접근성이 매우 뛰어납니다. 점등 시간은 매일 오후 5시 30분부터 시작되며 다양한 이벤트와 팝업 스토어도 함께 조성됩니다. 주말 저녁에는 붐빌 수 있어 평일 저녁에 방문하면 한결 여유롭게 촬영할 수 있습니다.",
+    "body_en": "Held annually from mid-November to early January around Banqiao Station, this is Taiwan's premier winter illumination festival. Highlighting the event is a massive 3D light projection show on the New Taipei City Hall building alongside themed light tunnels. Located directly above Banqiao MRT Station, it offers effortless access for travelers. Illumination begins daily at 5:30 PM, accompanied by pop-up booths and food stalls. Visiting on a weekday evening provides a more relaxed photo experience compared to busy weekends."
+   },
+   {
+    "heading_ko": "타이베이 필수 먹거리 (우육면 & 버블티)",
+    "heading_en": "Must-Eat Taipei Treats (Beef Noodles & Boba)",
+    "body_ko": "타이베이에 왔다면 진한 육수와 두툼한 소고기가 들어간 우육면은 반드시 맛봐야 합니다. 맑고 깔끔한 청돈 우육면과 얼큰하고 진한 홍소 우육면 중 취향에 따라 선택할 수 있습니다. 든든한 식사 후에는 타피오카 펄이 쫀득하게 씹히는 버블 밀크티로 후식을 즐겨보세요. 식당마다 육수 스타일과 당도 조절 방식이 다르니 취향대로 맞춰 먹는 재미가 있습니다. 유명 점포는 식사 시간대에 웨이팅이 길어질 수 있으므로 약간 이른 시간에 가는 것이 팁입니다.",
+    "body_en": "No visit to Taipei is complete without savoring a bowl of Taiwanese beef noodle soup. You can choose between a clear, delicate broth (Qingdun) or a rich, spicy braised broth (Hongshao). Follow up your meal with a cup of fresh bubble milk tea packed with chewy tapioca pearls. Different eateries offer unique flavor balances, allowing you to customize sweetness and ice levels. Popular restaurants often see queues during peak hours, so arriving slightly early is advised."
+   },
+   {
+    "heading_ko": "라오허제 관광야시장",
+    "heading_en": "Raohe Street Night Market",
+    "body_ko": "스린 야시장과 함께 타이베이를 대표하는 라오허제 야시장은 스트리트 푸드의 천국입니다. 야시장 입구에 위치한 화덕 만두인 '후자오빙'은 줄을 서서라도 꼭 먹어볼 만한 대표 메뉴입니다. 직선 형태의 거리 구조로 조성되어 있어 왕복하며 길거리 음식을 탐방하기에 매우 편리합니다. 영업시간은 보통 오후 5시부터 늦은 밤 11시 이후까지 이어집니다. 현금 결제만 가능한 점포가 많으니 소액 지폐를 미리 준비해 가는 것이 좋습니다.",
+    "body_en": "Alongside Shilin, Raohe Street Night Market is one of Taipei's most beloved evening destinations. Right at the entrance, vendor stalls serve crisp black pepper pork buns (Hujiaobing) fresh out of clay ovens. The straight-line layout makes strolling past vibrant food stalls straightforward and fun. Operating from around 5:00 PM until late night, it is an ideal spot for night-owl foodies. Most vendors accept cash only, so carrying small bills is highly recommended."
+   }
+  ],
+  "closing_ko": "화려한 야경과 크리스마스 빛 축제, 맛있는 식도락까지 완벽한 타이베이로 떠나보세요. 매장 운영시간 및 상세 정보는 출발 전 다시 확인하시기 바랍니다.",
+  "closing_en": "From dazzling nightscapes and festive light shows to unforgettable street food, Taipei offers a perfect winter getaway. Please recheck business hours and event schedules before traveling."
+ },
+ "sources": [
+  "https://www.travel.taipei/en",
+  "https://www.travel.taipei/en/attraction/details/1677",
+  "https://www.travel.taipei/en/shop/details/2443",
+  "https://www.travel.taipei/en/attraction/details/1684",
+  "https://christmasland.ntpc.gov.tw"
+ ],
+ "id": "2026-11-24-taipei",
+ "date": "2026-11-24",
+ "grounded": false,
+ "credits": [
+  "4601460 / Pixabay",
+  "Adonis Lin / CC BY 3.0 / Wikimedia Commons",
+  "Dan Nevill / CC BY 2.0 / Wikimedia Commons",
+  "Eugene Lim / CC BY 2.0 / Wikimedia Commons",
+  "HoaLuu / Pixabay",
+  "MagicTV / Pixabay",
+  "Ounfs Robmmy 238 / CC0 / Wikimedia Commons",
+  "Penguinloversam / Pixabay",
+  "artideg / Pixabay"
+ ],
+ "images": [
+  "cover.jpg",
+  "p00.webp",
+  "p01.webp",
+  "p02.webp",
+  "p03.webp",
+  "p04.webp",
+  "p05.webp",
+  "p06.webp",
+  "p07.webp",
+  "p08.webp",
+  "p09.webp",
+  "thumb.webp"
+ ],
+ "published_at": "2026-11-24T07:57:10Z",
+ "blogger_urls": {
+  "ko": "https://wherecatstoday.blogspot.com/2026/11/3-4-101.html"
+ },
+ "ig_permalink": "https://www.instagram.com/reel/DgHeIepjC7g/"
+}
